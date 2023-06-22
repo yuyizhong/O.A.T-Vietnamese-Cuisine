@@ -1,1 +1,1 @@
-web: gunicorn sizzleandsteak.wsgi
+web: gunicorn OAT.wsgi

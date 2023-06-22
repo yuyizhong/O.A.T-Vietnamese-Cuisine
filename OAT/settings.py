@@ -32,9 +32,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     '8000-yuyizhong-oat-vietname-kwuo1ph5l3.us2.codeanyapp.com',
-    'oat-vietnamese-cuisine.herokuapp.com',
-    ]
-    
+    'oat-vietnamese-cuisine-91aa08c21232.herokuapp.com',
+]
+
 
 # Application definition
 
@@ -47,7 +47,7 @@ INSTALLED_APPS = [
     'cloudinary_storage',
     'django.contrib.staticfiles',
     # other
-    'cloudinary', 
+    'cloudinary',
     # apps
     'menu',
     'reviews',
@@ -108,7 +108,6 @@ else:
             'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         }
     }
-
 
 
 # Password validation

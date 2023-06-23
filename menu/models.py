@@ -3,6 +3,8 @@ from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 
 # Choice fields
+
+
 class Menu(models.Model):
     STATUS_CHOICES = (
         ('draft', 'Draft'),
@@ -19,10 +21,11 @@ class Menu(models.Model):
     name = models.CharField(max_length=60)
     description = models.TextField(default="")
     price = models.DecimalField(max_digits=4, decimal_places=2)
-    menu_image = CloudinaryField('image', default='placeholder')    
+    menu_image = CloudinaryField('image', default='placeholder')
     status = models.CharField(
         max_length=10, choices=STATUS_CHOICES, default='draft')
     type = models.CharField(max_length=20, choices=TYPE_CHOICES)
+    average_rating = models.FloatField(default=0)
 
     class Meta:
         """ Order by type and name """
@@ -31,4 +34,16 @@ class Menu(models.Model):
     def __str__(self):
         return self.name
 
- 
+    @property
+    def formatted_price(self):
+        return '£{:.2f}'.format(self.price)
+
+    def update_average_rating(self):
+        total_reviews = self.reviews.count()
+        if total_reviews > 0:
+            total_ratings = sum(
+                [review.rating for review in self.reviews.all()])
+            self.average_rating = total_ratings / total_reviews
+        else:
+            self.average_rating = 0
+        self.save()

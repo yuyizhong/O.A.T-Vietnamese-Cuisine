@@ -24,12 +24,12 @@ class MenuItem(models.Model):
     menu_image = CloudinaryField('image', default='placeholder')
     status = models.CharField(
         max_length=10, choices=STATUS_CHOICES, default='draft')
-    type = models.CharField(max_length=20, choices=TYPE_CHOICES)
+    category = models.CharField(max_length=20, choices=TYPE_CHOICES)
     average_rating = models.FloatField(default=0)
 
     class Meta:
         """ Order by type and name """
-        ordering = ['type', 'name']
+        ordering = ['category', 'name']
 
     def __str__(self):
         return self.name

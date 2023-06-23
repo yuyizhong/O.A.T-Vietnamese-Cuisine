@@ -8,8 +8,8 @@ class MenuAdmin(admin.ModelAdmin):
     list_display = (
         'menu_image',
         'name',
-        'type',
+        'category',
         'price',
         'average_rating'
     )
-    list_filter = ('type', 'status')
+    list_filter = ('category', 'status')

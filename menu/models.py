@@ -5,7 +5,7 @@ from cloudinary.models import CloudinaryField
 # Choice fields
 
 
-class Menu(models.Model):
+class MenuItem(models.Model):
     STATUS_CHOICES = (
         ('draft', 'Draft'),
         ('approved', 'Approved'),

@@ -1,5 +1,5 @@
 from django import forms
-from .models import ManuItem
+from .models import MenuItem
 
 
 class MenuForm(forms.ModelForm):

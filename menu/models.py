@@ -2,20 +2,19 @@ from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 
-# Choice fields
+
+class Category(models.Model):
+    name = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.name
 
 
 class MenuItem(models.Model):
+    # Choice fields
     STATUS_CHOICES = (
         ('draft', 'Draft'),
         ('approved', 'Approved'),
-    )
-
-    TYPE_CHOICES = (
-        ('appetizer', 'Appetizer'),
-        ('main_course', 'Main Course'),
-        ('dessert', 'Dessert'),
-        ('beverage', 'Beverage'),
     )
 
     name = models.CharField(max_length=60)
@@ -24,7 +23,7 @@ class MenuItem(models.Model):
     menu_image = CloudinaryField('image', default='placeholder')
     status = models.CharField(
         max_length=10, choices=STATUS_CHOICES, default='draft')
-    category = models.CharField(max_length=20, choices=TYPE_CHOICES)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
     average_rating = models.FloatField(default=0)
 
     class Meta:

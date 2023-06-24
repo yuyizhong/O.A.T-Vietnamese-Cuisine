@@ -1,12 +1,51 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Menu</h1>
-<ul>
-    {% for item in menu_list %}
-    <p>{{item.name}}</p>
-    {% endfor %}
+<!-- Display menu items by category -->
+{% for category, menu_items in menu_items_by_category.items %}
+<h2>{{ category.name }}</h2>
+<div class="row">
+    {% for menu in menu_items %}
+    <div class="col-md-6 mb-3">
+        <div class="row">
+            <div class="col-md-4">
+                {% if menu.menu_image %}
+                <img src="{{ menu.menu_image.url }}" class="img-fluid" alt="Menu Image">
+                {% else %}
+                <img src="{% static 'images/placeholder.png' %}" class="img-fluid" alt="Placeholder Image">
+                {% endif %}
+                <!-- Add average rating stars -->
+                <div class="rating">
+                    {{ menu.rating_stars | safe }}
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ menu.name }}</h5>
+                        <p class="card-text">Price: {{ menu.formatted_price }}</p>
+                        <p class="card-text">{{ menu.description }}</p>
 
-</ul>
-<a href='{% url add-menu %}'>Add Dish</a>
+                        <!-- User Links -->
+                        {% if request.user.is_authenticated %}
+                        <a href="#">Leave a Review</a>
+                        <a href="#">Edit Review</a>
+                        <a href="#">Delete Review</a>
+                        {% endif %}
+
+                        <!-- Admin Links -->
+                        {% if request.user.is_authenticated and request.user.is_staff %}
+                        <a href="/add-menu">Add Menu</a>
+                        <a href="#">Edit Menu</a>
+                        <a href="#">Delete Menu</a>
+                        <a href="#">Reply to Review</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endfor %}
 {% endblock %}

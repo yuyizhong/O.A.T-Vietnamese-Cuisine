@@ -1,23 +1,20 @@
-from django.shortcuts import render
-from .models import MenuItem
+from django.shortcuts import render, get_object_or_404, redirect
+# from .forms import ReviewForm
+from .models import MenuItem, Category  # Add import for Category model
 from .forms import MenuForm
 
 
 def menu_list(request):
-    menu_items = MenuItem.objects.all().order_by('category')
-    # categories = set(item.get_category_display() for item in menu_items)
-    # categorized_menu = {}
-    # for category in categories:
-    #     categorized_menu[category] = [
-    #         item for item in menu_items if item.get_category_display() == category]
-    # context = {
-    #     'categorized_menu': categorized_menu
-    # }
+    menu_items_by_category = {}  # Dictionary to store menu items by category
 
-    context = {
-        'menu-items': menu_items
-    }
-    return render(request, 'menu/menu_list.html', context)
+    # Retrieve all menu items and group them by category
+    categories = Category.objects.all()
+    for category in categories:
+        menu_items = MenuItem.objects.filter(category=category)
+        menu_items_by_category[category] = menu_items
+
+    context = {'menu_items_by_category': menu_items_by_category}
+    return render(request, 'menu_list.html', context)
 
 def add_menu(request):
     if request.method == 'POST':

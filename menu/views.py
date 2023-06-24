@@ -10,7 +10,8 @@ def menu_list(request):
     # Retrieve all menu items and group them by category
     categories = Category.objects.all()
     for category in categories:
-        menu_items = MenuItem.objects.filter(category=category)
+        # Retrieve approved menu items for the category
+        menu_items = MenuItem.objects.filter(category=, status='approved')
         menu_items_by_category[category] = menu_items
 
     context = {'menu_items_by_category': menu_items_by_category}

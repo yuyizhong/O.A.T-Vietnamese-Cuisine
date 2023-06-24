@@ -11,7 +11,10 @@ def menu_list(request):
     categories = Category.objects.all()
     for category in categories:
         # Retrieve approved menu items for the category
-        menu_items = MenuItem.objects.filter(category=, status='approved')
+        menu_items = MenuItem.objects.filter(
+            category=category,
+            status='approved'
+        )
         menu_items_by_category[category] = menu_items
 
     context = {'menu_items_by_category': menu_items_by_category}
@@ -29,3 +32,12 @@ def add_menu(request):
         'form': form
     }
     return render(request, 'menu/add_menu.html', context)
+
+
+def edit_menu(request, item_id):
+    item = get_pbject_or_404(MenuItem, id=item_id)
+    form = MenuForm(instance=item)
+    context = {
+        'form': form
+    }
+    return render(request, 'menu/edit_menu.html', context)

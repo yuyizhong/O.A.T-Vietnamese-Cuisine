@@ -1,14 +1,14 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Add Menu</h1>
-<form method="POST" action="add">
+<h1>Edit Menu</h1>
+<form method="POST">
     {% csrf_token %}
     {{ form.as_table }}
     <div>
         <p>
             <button type="submit">
-                Add Menu
+                Update Menu
             </button>
         </p>
     </div>

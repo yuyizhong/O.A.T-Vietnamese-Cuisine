@@ -39,7 +39,8 @@
                         <!-- Admin Links -->
                         {% if request.user.is_authenticated and request.user.is_staff %}
                         <a href="/add-menu">Add Menu</a>
-                        <a href="#">Edit Menu</a>
+                        <a href="/edit-menu/{{ item.id }}">Edit Menu</a>
+                        <a href="/toggle-menu/{{ item.id }}">Toggle Menu</a>
                         <a href="#">Delete Menu</a>
                         <a href="#">Reply to Review</a>
                         {% endif %}

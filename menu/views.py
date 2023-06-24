@@ -12,7 +12,7 @@ def menu_list(request):
     for category in categories:
         # Retrieve approved menu items for the category
         menu_items = MenuItem.objects.filter(
-            category=category,
+            category='category',
             status='approved'
         )
         menu_items_by_category[category] = menu_items

@@ -6,5 +6,7 @@
     {% for item in menu_list %}
     <p>{{item.name}}</p>
     {% endfor %}
+
 </ul>
+<a href='{% url add-menu %}'>Add Dish</a>
 {% endblock %}

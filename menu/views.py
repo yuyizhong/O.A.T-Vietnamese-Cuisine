@@ -5,17 +5,18 @@ from .forms import MenuForm
 
 
 def menu_list(request):
+    if request.user.is_superuser:  # Check if user is an admin
+        menu_items = MenuItem.objects.all()
+    else:
+        menu_items = MenuItem.objects.filter(status='approved')
+
     menu_items_by_category = {}  # Dictionary to store menu items by category
 
     # Retrieve all menu items and group them by category
     categories = Category.objects.all()
     for category in categories:
-        # Retrieve approved menu items for the category
-        menu_items = MenuItem.objects.filter(
-            category='category',
-            status='approved'
-        )
-        menu_items_by_category[category] = menu_items
+        category_menu_items = menu_items.filter(category=category)
+        menu_items_by_category[category] = category_menu_items
 
     context = {'menu_items_by_category': menu_items_by_category}
     return render(request, 'menu/menu_list.html', context)
@@ -34,10 +35,23 @@ def add_menu(request):
     return render(request, 'menu/add_menu.html', context)
 
 
-def edit_menu(request, item_id):
-    item = get_pbject_or_404(MenuItem, id=item_id)
+def edit_menu(request, menu_item_id):
+    item = get_object_or_404(MenuItem, id=menu_item_id)
     form = MenuForm(instance=item)
     context = {
         'form': form
     }
     return render(request, 'menu/edit_menu.html', context)
+
+
+def hide_menu(request, menu_item_id):
+    menu_item = get_object_or_404(MenuItem, id=menu_item_id)
+    menu_item.status = 'draft'
+    menu_item.save()
+    return redirect('menu_list')
+
+
+def delete_menu(request, menu_item_id):
+    menu_item = get_object_or_404(MenuItem, id=menu_item_id)    
+    menu_item.delete()
+    return redirect('menu_list')

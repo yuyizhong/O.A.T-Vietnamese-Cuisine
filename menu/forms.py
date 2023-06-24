@@ -11,5 +11,5 @@ class MenuForm(forms.ModelForm):
             'price',
             'menu_image',
             'status',
-            'category'
+            # 'category'
         ]

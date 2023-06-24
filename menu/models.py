@@ -4,7 +4,7 @@ from cloudinary.models import CloudinaryField
 
 
 class Category(models.Model):
-    name = models.CharField(max_length=255)
+    name = models.CharField(max_length=25)
 
     def __str__(self):
         return self.name
@@ -23,8 +23,9 @@ class MenuItem(models.Model):
     menu_image = CloudinaryField('image', default='placeholder')
     status = models.CharField(
         max_length=10, choices=STATUS_CHOICES, default='draft')
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+
     average_rating = models.FloatField(default=0)
+    category = models.ForeignKey(Category, null=True, on_delete=models.CASCADE)
 
     class Meta:
         """ Order by type and name """

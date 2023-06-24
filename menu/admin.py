@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import MenuItem
+from .models import MenuItem, Category
 
 
 @admin.register(MenuItem)
@@ -8,8 +8,11 @@ class MenuAdmin(admin.ModelAdmin):
     list_display = (
         'menu_image',
         'name',
-        'category',
         'price',
+        'category',
         'average_rating'
     )
     list_filter = ('category', 'status')
+
+
+admin.site.register(Category)

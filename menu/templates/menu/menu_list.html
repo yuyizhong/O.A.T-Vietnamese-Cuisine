@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
 <!-- Display menu items by category -->
@@ -6,13 +7,15 @@
 <h2>{{ category.name }}</h2>
 <div class="row">
     {% for menu in menu_items %}
+
+
     <div class="col-md-6 mb-3">
         <div class="row">
             <div class="col-md-4">
-                {% if menu.menu_image %}
+                {% if menu.menu_image.url is not None %}
                 <img src="{{ menu.menu_image.url }}" class="img-fluid" alt="Menu Image">
                 {% else %}
-                <img src="{% static 'images/placeholder.png' %}" class="img-fluid" alt="Placeholder Image">
+                <img src="{% static 'menu/images/default.jpeg' %}" class="img-fluid" alt="Placeholder Image">
                 {% endif %}
                 <!-- Add average rating stars -->
                 <div class="rating">

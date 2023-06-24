@@ -14,7 +14,8 @@ def menu_list(request):
         menu_items_by_category[category] = menu_items
 
     context = {'menu_items_by_category': menu_items_by_category}
-    return render(request, 'menu_list.html', context)
+    return render(request, 'menu/menu_list.html', context)
+
 
 def add_menu(request):
     if request.method == 'POST':

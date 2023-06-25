@@ -2,9 +2,9 @@
 
 {% block content %}
 <h1>Add Menu</h1>
-<form method="POST" action="add">
+<form method="POST" action="{% url 'add-menu' %}">
     {% csrf_token %}
-    {{ form.as_table }}
+    {{ form.as_p }}
     <div>
         <p>
             <button type="submit">

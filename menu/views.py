@@ -27,12 +27,12 @@ def add_menu(request):
         form = MenuForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('menu_list')
+            return redirect('/menu/menu_list')
     form = MenuForm()
     context = {
         'form': form
     }
-    return render(request, 'menu/add_menu.html', context)
+    return redirect(reverse('menu-list'))
 
 
 def edit_menu(request, menu_item_id):
@@ -52,6 +52,6 @@ def hide_menu(request, menu_item_id):
 
 
 def delete_menu(request, menu_item_id):
-    menu_item = get_object_or_404(MenuItem, id=menu_item_id)    
+    menu_item = get_object_or_404(MenuItem, id=menu_item_id)
     menu_item.delete()
     return redirect('menu_list')

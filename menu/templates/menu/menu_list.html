@@ -45,7 +45,7 @@
                         {% elif menu.status == 'hidden' %}
                         <a href="{% url 'hide-menu' menu.id %}">Unhide Menu</a>
                         {% endif %}
-                        <!-- <a href="/delete-menu/{{ menu_item.id }}">Delete Menu</a> -->
+                        <a href="{% url 'delete-menu' menu.id %}">Delete Menu</a>
                         <a href="#">Reply to Review</a>
                         {% endif %}
 

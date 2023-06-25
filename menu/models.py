@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
+# from .models import Review
 
 
 class Category(models.Model):
@@ -24,8 +25,6 @@ class MenuItem(models.Model):
     menu_image = CloudinaryField('image', default='placeholder')
     status = models.CharField(
         max_length=10, choices=STATUS_CHOICES, default='draft')
-
-    average_rating = models.FloatField(default=0)
     category = models.ForeignKey(Category, null=True, on_delete=models.CASCADE)
 
     class Meta:
@@ -39,12 +38,11 @@ class MenuItem(models.Model):
     def formatted_price(self):
         return '£{:.2f}'.format(self.price)
 
-    def update_average_rating(self):
-        total_reviews = self.reviews.count()
-        if total_reviews > 0:
-            total_ratings = sum(
-                [review.rating for review in self.reviews.all()])
-            self.average_rating = total_ratings / total_reviews
+    @property
+    def average_rating(self):
+        original_reviews = self.review_set.exclude(user__is_staff=True)
+        if original_reviews.exists():
+            total_rating = sum(review.rating for review in original_reviews)
+            return total_rating / original_reviews.count()
         else:
-            self.average_rating = 0
-        self.save()
+            return 0

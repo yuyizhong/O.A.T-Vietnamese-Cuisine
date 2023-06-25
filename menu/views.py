@@ -1,7 +1,7 @@
 from django.shortcuts import redirect, reverse
 from django.shortcuts import render, get_object_or_404, redirect
-from django.urls import reverse
-# from .forms import ReviewForm
+
+
 from .models import MenuItem, Category  # Add import for Category model
 from .forms import MenuForm
 
@@ -32,7 +32,7 @@ def add_menu(request):
         if form.is_valid():
             form.save()
             # Redirect to menu-list URL name
-            return redirect(reverse('menu-list'))
+            return redirect('menu-list')
     form = MenuForm()
     context = {
         'form': form
@@ -67,7 +67,7 @@ def hide_menu(request, menu_item_id):
     return redirect('menu-list')
 
 
-# def delete_menu(request, menu_item_id):
-#     menu_item = get_object_or_404(MenuItem, id=menu_item_id)
-#     menu_item.delete()
-#     return redirect(reverse('menu-list'))
+def delete_menu(request, menu_item_id):
+    menu_item = get_object_or_404(MenuItem, id=menu_item_id)
+    menu_item.delete()
+    return redirect('menu-list')

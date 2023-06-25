@@ -1,8 +1,9 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
 <h1>Add Menu</h1>
-<form method="POST" action="{% url 'add-menu' %}">
+<form method="POST" action="{% url 'add-menu' %}" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
     <div>

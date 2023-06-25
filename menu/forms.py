@@ -13,3 +13,6 @@ class MenuForm(forms.ModelForm):
             'status',
             'category'
         ]
+        # widgets = {
+        #     'menu_image': forms.ClearableFileInput(attrs={'multiple': False}),
+        # }

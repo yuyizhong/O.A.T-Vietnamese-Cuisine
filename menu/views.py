@@ -20,6 +20,8 @@ def menu_list(request):
         category_menu_items = menu_items.filter(category=category)
         menu_items_by_category[category] = category_menu_items
 
+    print(menu_items_by_category)
+
     context = {'menu_items_by_category': menu_items_by_category}
     return render(request, 'menu/menu_list.html', context)
 
@@ -47,14 +49,14 @@ def edit_menu(request, menu_item_id):
     return render(request, 'menu/edit_menu.html', context)
 
 
-def hide_menu(request, menu_item_id):
-    menu_item = get_object_or_404(MenuItem, id=menu_item_id)
-    menu_item.status = 'draft'
-    menu_item.save()
-    return redirect(reverse('menu-list'))
+# def hide_menu(request, menu_item_id):
+#     menu_item = get_object_or_404(MenuItem, id=menu_item_id)
+#     menu_item.status = 'draft'
+#     menu_item.save()
+#     return redirect(reverse('menu-list'))
 
 
-def delete_menu(request, menu_item_id):
-    menu_item = get_object_or_404(MenuItem, id=menu_item_id)
-    menu_item.delete()
-    return redirect(reverse('menu-list'))
+# def delete_menu(request, menu_item_id):
+#     menu_item = get_object_or_404(MenuItem, id=menu_item_id)
+#     menu_item.delete()
+#     return redirect(reverse('menu-list'))

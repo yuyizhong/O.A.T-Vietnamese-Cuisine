@@ -41,8 +41,8 @@
                         {% if request.user.is_authenticated and request.user.is_staff %}
                         <a href="{% url 'add-menu' %}">Add Menu</a>
                         <a href="{% url 'edit-menu' menu.id %}">Edit Menu</a>
-                        <!-- <a href="/hide-menu/{{ menu_item.id }}">Hide Menu</a>
-                        <a href="/delete-menu/{{ menu_item.id }}">Delete Menu</a> -->
+                        <a href="{% url 'hide-menu' menu.id %}">Hide Menu</a>
+                        <!-- <a href="/delete-menu/{{ menu_item.id }}">Delete Menu</a> -->
                         <a href="#">Reply to Review</a>
                         {% endif %}
 

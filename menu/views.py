@@ -57,11 +57,14 @@ def edit_menu(request, menu_item_id):
     return render(request, 'menu/edit_menu.html', context)
 
 
-# def hide_menu(request, menu_item_id):
-#     menu_item = get_object_or_404(MenuItem, id=menu_item_id)
-#     menu_item.status = 'draft'
-#     menu_item.save()
-#     return redirect(reverse('menu-list'))
+def hide_menu(request, menu_item_id):
+    menu_item = get_object_or_404(MenuItem, id=menu_item_id)
+    if menu_item.status == 'approved':
+        menu_item.status = 'hidden'
+    elif menu_item.status == 'hidden':
+        menu_item.status = 'approved'
+    menu_item.save()
+    return redirect('menu-list')
 
 
 # def delete_menu(request, menu_item_id):

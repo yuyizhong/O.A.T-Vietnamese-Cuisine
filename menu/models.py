@@ -15,6 +15,7 @@ class MenuItem(models.Model):
     STATUS_CHOICES = (
         ('draft', 'Draft'),
         ('approved', 'Approved'),
+        ('hidden', 'Hidden'),
     )
 
     name = models.CharField(max_length=60)

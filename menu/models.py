@@ -1,7 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
-# from .models import Review
 
 
 class Category(models.Model):
@@ -40,6 +39,7 @@ class MenuItem(models.Model):
 
     @property
     def average_rating(self):
+        from .models import Review
         original_reviews = self.review_set.exclude(user__is_staff=True)
         if original_reviews.exists():
             total_rating = sum(review.rating for review in original_reviews)

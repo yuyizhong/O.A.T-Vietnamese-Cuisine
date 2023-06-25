@@ -28,7 +28,6 @@
                         <h5 class="card-title">{{ menu.name }}</h5>
                         <p class="card-text">Price: {{ menu.formatted_price }}</p>
                         <p class="card-text">{{ menu.description }}</p>
-                        <p> {{menu.id}}</p>
 
                         <!-- User Links -->
                         {% if request.user.is_authenticated %}
@@ -41,10 +40,10 @@
                         {% if request.user.is_authenticated and request.user.is_staff %}
                         <a href="{% url 'add-menu' %}">Add Menu</a>
                         <a href="{% url 'edit-menu' menu.id %}">Edit Menu</a>
-                        {% if menu_item.status == 'approved' %}
-                        <a href="{% url 'hide-menu' menu_item.id %}">Hide Menu</a>
-                        {% elif menu_item.status == 'hidden' %}
-                        <a href="{% url 'hide-menu' menu_item.id %}">Unhide Menu</a>
+                        {% if menu.status == 'approved' %}
+                        <a href="{% url 'hide-menu' menu.id %}">Hide Menu</a>
+                        {% elif menu.status == 'hidden' %}
+                        <a href="{% url 'hide-menu' menu.id %}">Unhide Menu</a>
                         {% endif %}
                         <!-- <a href="/delete-menu/{{ menu_item.id }}">Delete Menu</a> -->
                         <a href="#">Reply to Review</a>

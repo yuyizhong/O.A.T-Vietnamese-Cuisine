@@ -21,5 +21,9 @@ class Review(models.Model):
     image = CloudinaryField('image', default=None, blank=True, null=True)
     visit_date = models.DateField()
 
+    class Meta:
+        """ Order by time of creation """
+        ordering = ["created_date"]
+
     def __str__(self):
         return f"Review for {self.menu_item.name} by {self.user.username}"

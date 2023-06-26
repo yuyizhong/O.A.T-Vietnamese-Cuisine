@@ -1,0 +1,39 @@
+/* Styles for the header section */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+}
+
+.logo {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+h4 {
+    margin: 0;
+}
+
+/* Additional styles for the container sections */
+.container-section {
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 24px;
+    margin-top: 0;
+}
+
+p {
+    margin-top: 10px;
+}
+
+img {
+    width: 100%;
+    height: auto;
+    margin-top: 10px;
+}

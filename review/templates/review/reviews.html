@@ -19,8 +19,8 @@
                                 <i class="fa fa-star"></i>
                             {% endfor %}
                             </div>
-                            <p class="card-subtitle mb-2 text-muted">{{ review.user.username }} - {{ review.created_date
-                                }}</p>
+                            <p class="card-subtitle mb-2 text-muted">{{ review.user.username }} created on: {{ review.created_date}}
+                            </p>
                             <p class="card-text">{{ review.content }}</p>
                             {% if review.image %}
                             <img src="{{ review.image.url }}" alt="Review Image" class="img-fluid mb-2">

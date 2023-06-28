@@ -15,9 +15,9 @@ def review_list(request):
 
    
     
-    paginate_by = 6
-     context = {
-        'reviews': review,
+    paginate_by: 6
+    context = {
+        'reviews': reviews,
         
         # 'page_obj': page_obj,
     }

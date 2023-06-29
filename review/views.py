@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.core.paginator import Paginator
-from .models import Review, MenuItem
+from .models import Review
+from menu.models import MenuItem
 from .forms import ReviewForm
 
 

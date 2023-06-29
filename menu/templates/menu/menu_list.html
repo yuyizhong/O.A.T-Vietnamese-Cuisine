@@ -28,10 +28,11 @@
                         <h5 class="card-title">{{ menu.name }}</h5>
                         <p class="card-text">Price: {{ menu.formatted_price }}</p>
                         <p class="card-text">{{ menu.description }}</p>
+                        <p>{{menu_item_id}}</p>
 
                         <!-- User Links -->
                         {% if request.user.is_authenticated %}
-                        <a href="#">Leave a Review</a>
+                        <a href="{% url 'leave-review' menu_item_id=menu.id %}">Leave a Review</a>
                         <a href="#">Edit Review</a>
                         <a href="#">Delete Review</a>
                         {% endif %}

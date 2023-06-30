@@ -12,3 +12,6 @@ class ReviewForm(forms.ModelForm):
             'image', 
             'visit_date',                      
         ]
+
+
+        

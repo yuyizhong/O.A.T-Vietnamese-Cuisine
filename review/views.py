@@ -30,9 +30,8 @@ def review_list(request):
 
 def leave_review(request):
 # def leave_review(request):
-    # menu_item = get_object_or_404(MenuItem, id=menu_item_id)
-    
-    
+  
+    print(request)
     form = ReviewForm()
 
     if request.method == 'POST':
@@ -40,6 +39,7 @@ def leave_review(request):
         if form.is_valid():
             review = form.save(commit=False)
             review.user = request.user
+            print(request.user)
             # review.menu_item = menu_item
             review.save()
         return redirect('menu-list') 
@@ -47,7 +47,7 @@ def leave_review(request):
 
     context = {
         'form': form,
-    #  'menu_item': menu_item
+        # 'menu': menu
     }
 
     return render(request, 'review/leave_review.html', context)

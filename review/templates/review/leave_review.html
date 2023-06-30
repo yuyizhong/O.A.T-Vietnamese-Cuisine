@@ -4,7 +4,7 @@
 {% block content %}
 <h1>Leave A Review</h1>
 <!-- <form method="POST" action="{% url 'leave-review' %}" enctype="multipart/form-data"> -->
-<form method="POST" action="{% url 'menu-list' %}" enctype="multipart/form-data">
+<form method="POST" action="{% url 'leave-review' %}" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
     <div>

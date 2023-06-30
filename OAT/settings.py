@@ -31,7 +31,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', '')
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '8000-yuyizhong-oat-vietname-kwuo1ph5l3.us2.codeanyapp.com',
+    '8000-yuyizhong-oatvietnamese-8jlbt86xvjy.ws-eu101.gitpod.io',
     'oat-vietnamese-cuisine-91aa08c21232.herokuapp.com',
     'localhost',
 ]

@@ -2,9 +2,9 @@
 {% load static %}
 
 {% block content %}
-<h1>Leave A Review</h1>
-<!-- <form method="POST" action="{% url 'leave-review' %}" enctype="multipart/form-data"> -->
-<form method="POST" action="{% url 'leave-review' %}" enctype="multipart/form-data">
+<h1>Leave A Review for {{menu.name}}</h1>
+
+<form method="POST" action="{% url 'leave-review' menu_id %}" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
     <div>

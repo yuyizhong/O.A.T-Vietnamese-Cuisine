@@ -32,7 +32,7 @@
 
                         <!-- User Links -->
                         {% if request.user.is_authenticated %}
-                        <a href="{% url 'leave-review' %}">Leave a Review</a>
+                        <a href="{% url 'leave-review' menu.id %}">Leave a Review</a>
                         <p>{{menu.id}}</p>
                         <a href="#">Edit Review</a>
                         <a href="#">Delete Review</a>

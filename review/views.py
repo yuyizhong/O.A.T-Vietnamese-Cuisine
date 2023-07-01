@@ -28,10 +28,9 @@ def review_list(request):
     return render(request, 'review/reviews.html', context)
 
 
-def leave_review(request):
-# def leave_review(request):
-  
-    print(request)
+def leave_review(request, pk):
+
+    menu = MenuItem.objects.get(id=pk)
     form = ReviewForm()
 
     if request.method == 'POST':
@@ -39,15 +38,15 @@ def leave_review(request):
         if form.is_valid():
             review = form.save(commit=False)
             review.user = request.user
-            print(request.user)
-            # review.menu_item = menu_item
+          
+            review.menu_item = menu
             review.save()
         return redirect('menu-list') 
 
-
     context = {
         'form': form,
-        # 'menu': menu
+        'menu_id': menu.id,
+        'menu': menu
     }
 
     return render(request, 'review/leave_review.html', context)

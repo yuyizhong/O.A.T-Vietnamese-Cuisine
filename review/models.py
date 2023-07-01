@@ -23,7 +23,7 @@ class Review(models.Model):
 
     class Meta:
         """ Order by time of creation """
-        ordering = ["created_date"]
+        ordering = ["-created_date"]
 
     def __str__(self):
         return f"Review for {self.menu_item.name} by {self.user.username}"

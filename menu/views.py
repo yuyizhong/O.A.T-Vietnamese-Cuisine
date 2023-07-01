@@ -25,6 +25,14 @@ def menu_list(request):
     context = {'menu_items_by_category': menu_items_by_category}
     return render(request, 'menu/menu_list.html', context)
 
+def single_menu(request, pk):
+    menu = MenuItem.objects.get(id = pk)
+
+    context = {
+            'menu': menu
+    }
+    return render(request, 'menu/single_menu.html', context)
+
 
 def add_menu(request):
     if request.method == 'POST':

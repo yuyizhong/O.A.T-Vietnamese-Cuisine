@@ -13,5 +13,5 @@ urlpatterns = [
     path('delete-menu/<int:menu_item_id>',
          views.delete_menu, name='delete-menu'),
     
-    path('<int:pk>/leave-review/', review_views.leave_review, name='leave-review'),
+    path('meun-list/<int:pk>/leave-review/', review_views.leave_review, name='leave-review'),
 ]

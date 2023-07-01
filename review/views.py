@@ -47,7 +47,7 @@ def leave_review(request, pk):
 
     context = {
         'form': form,
-        'menu': menu
+        'menu_id': menu.id
     }
 
     return render(request, 'review/leave_review.html', context)

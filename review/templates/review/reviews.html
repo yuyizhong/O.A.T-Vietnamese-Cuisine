@@ -4,8 +4,13 @@
 <div class="container">
     <h1>Reviews</h1>
 
+    {% for category in categories %}
+    <h2>{{ category.name }}</h2> <!-- Display the category name -->
+
     <div class="row">
+        
         {% for review in reviews %}
+        {% if review.menu_item.category == category %}
         <div class="col-md-6 mb-4">
             <div class="card">
                 <div class="card-body">
@@ -29,13 +34,12 @@
                             </p>
                             {% if review.reply_set.exists %}
                                 <div class="admin-reply">
-                                    <p class="card-text"><small class="text-muted">Manager Replies:</small></p>
+                                    <p class="card-text"><small class="text-muted">Admin Replies:</small></p>
                                     {% for reply in review.reply_set.all %}
                                         <p class="card-text"><small class="text-muted">{{ reply.content }}</small></p>
                                     {% endfor %}
                                 </div>
                             {% endif %}
-
                             {% if user.is_staff %}
                             <button class="btn btn-primary">Reply</button>
                             {% endif %}
@@ -44,21 +48,8 @@
                 </div>
             </div>
         </div>
+        {% endif %}
         {% endfor %}
+    {% endfor %}
     </div>
-
-    {% if is_paginated %}
-    <nav aria-label="Page navigation">
-        <ul class="pagination justify-content-center">
-            {% if page_obj.has_previous %}
-            <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV </a></li>
-            {% endif %}
-            {% if page_obj.has_next %}
-            <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
-
-            {% endif %}
-        </ul>
-    </nav>
-    {% endif %}
-</div>
-{% endblock %}
+{% endblock content %}

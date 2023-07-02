@@ -1,31 +1,26 @@
 from django.shortcuts import render, redirect, get_object_or_404, reverse
-from django.core.paginator import Paginator
+# from django.core.paginator import Paginator
 from .models import Review
-from menu.models import MenuItem
+from menu.models import MenuItem, Category
 from .forms import ReviewForm
 
 
 def review_list(request):
-    reviews = Review.objects.all()
+    menu_id = request.GET.get('menu_id')
+    if menu_id:
+        reviews = Review.objects.filter(menu_item_id=menu_id)
+    else:
+        reviews = Review.objects.all()
 
-    # # Set the number of items per page
-    # items_per_page = 10
+    categories = Category.objects.all()
 
-    # paginator = Paginator(reviews, items_per_page)
-    # page_number = request.GET.get('page')
-    # page_obj = paginator.get_page(page_number)
-
-   
-    
-    paginate_by: 6
     context = {
         'reviews': reviews,
-        
-        # 'page_obj': page_obj,
+        'categories': categories,
     }
 
-
     return render(request, 'review/reviews.html', context)
+
 
 
 def leave_review(request, pk):

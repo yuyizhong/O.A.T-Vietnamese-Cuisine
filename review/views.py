@@ -6,22 +6,36 @@ from .forms import ReviewForm
 
 
 def review_list(request):
-    menu_id = request.GET.get('menu_id')
-    if menu_id:
-        reviews = Review.objects.filter(menu_item_id=menu_id)
-    else:
-        reviews = Review.objects.all()
+    # menu_id = request.GET.get('menu_id')
+    menuitems = MenuItem.objects.all
+    # if menu_id:
+    #     reviews = Review.objects.filter(menu_item_id=menu_id)
+    # else:
+    reviews = Review.objects.all()
 
     categories = Category.objects.all()
 
     context = {
         'reviews': reviews,
         'categories': categories,
+        'menuitems':menuitems,
     }
 
     return render(request, 'review/reviews.html', context)
 
+def item_reviews(request, menu_id):
+    
+    item = MenuItem.objects.get(id = menu_id)
+   
+    print(item.name)
+    item_reviews = item.review_set.all()
 
+    context = {
+        'item_reviews': item_reviews,
+
+    }
+
+    return render(request, 'review/review_details.html', context)
 
 def leave_review(request, pk):
 

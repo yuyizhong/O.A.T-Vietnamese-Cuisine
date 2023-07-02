@@ -21,6 +21,10 @@ class Review(models.Model):
     image = CloudinaryField('image', default=None, blank=True, null=True)
     visit_date = models.DateField()
 
+    def get_total_reviews(self):
+        print('sfdsgdfdsgfesgfdg')
+        # return self.rating.count()
+
     class Meta:
         """ Order by time of creation """
         ordering = ["-created_date"]

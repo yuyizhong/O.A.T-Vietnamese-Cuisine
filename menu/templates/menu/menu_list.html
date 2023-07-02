@@ -25,7 +25,7 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">{{ menu.name }}</h5>
+                        <a href = "{% url 'single-menu' menu.id %}" > <h5 class="card-title">{{ menu.name }}</h5> </a>
                         <p class="card-text">Price: {{ menu.formatted_price }}</p>
                         <p class="card-text">{{ menu.description }}</p>
                         <p>{{menu_item_id}}</p>

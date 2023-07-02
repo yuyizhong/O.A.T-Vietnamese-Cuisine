@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h1>{{ item_reviews.0.menu_item.name }} Reviews</h1>
+    <img src="{{ item_reviews.0.menu_item.menu_image.url }}" alt="{{ item_reviews.0.menu_item.name }}" class="mb-4"
+        width="200" height="200">
+
+    {% for review in item_reviews %}
+    <div class="card mb-4">
+        <div class="card-body">
+            <div class="media">
+                <div class="media-body">                    
+                    <div class="rating">
+                        {% for i in ""|rjust:review.rating %}
+                            <i class="fa fa-star"></i>
+                        {% endfor %}
+                    </div>
+                    <p class="card-subtitle mb-2 text-muted"><strong>{{ review.user.username }}</strong> created on: {{ review.created_date }}
+                    </p>
+                    <p class="card-text">{{ review.content }}</p>
+                    {% if review.image %}
+                    <img src="{{ review.image.url }}" alt="Review Image" class="img-fluid mb-2">
+                    {% endif %}
+                    <p class="card-text"><small class="text-muted">Visited on: {{ review.visit_date }}</small></p>
+                    {% if review.reply_set.exists %}
+                    <div class="admin-reply">
+                        <p class="card-text"><small class="text-muted">Manager Replies:</small></p>
+                        {% for reply in review.reply_set.all %}
+                        <p class="card-text"><small class="text-muted">{{ reply.content }}</small></p>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                    {% if user.is_staff %}
+                    <button class="btn btn-primary">Reply</button>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock content %}
+

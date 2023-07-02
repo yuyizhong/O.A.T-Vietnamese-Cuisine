@@ -11,5 +11,5 @@ class ReviewAdmin(admin.ModelAdmin):
         'content',
         'created_at',        
     )
-    list_filter = ('-created_at')
+    list_filter = ('review','created_at')
     search_fields = ('created_at', 'content')

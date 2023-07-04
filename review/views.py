@@ -25,6 +25,7 @@ def review_list(request):
     }
 
     return render(request, 'review/reviews.html', context)
+    
 
 def item_reviews(request, menu_id):
     

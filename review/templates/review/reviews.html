@@ -21,13 +21,13 @@
                         {% if average_rating %}
                         {{average_rating}}
                         {{average_rating|floatformat:0}}
-                            {% with full_stars=average_rating|floatformat:0 %}
-                                {% if average_rating != full_stars %}
-                                    <i class="fa fa-star-half"></i>
-                                {% endif %}
+                            {% with full_stars=average_rating|floatformat:0 %}                               
                                 {% for i in ""|rjust:full_stars %}
                                     <i class="fa fa-star"></i>
                                 {% endfor %}
+                                {% if average_rating > full_stars %}
+                                <i class="fa fa-star-half"></i>
+                                {% endif %}
                             {% endwith %}
                         {% endif %}
                         {% endif %}

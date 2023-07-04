@@ -1,8 +1,8 @@
 from django.urls import path
-from . import views
-
+from .views import Reply
+app_name = 'reply'
 
 urlpatterns = [
     # Other URL patterns  
-    path('reply/<int:pk>/', views.reply, name='reply'),    
+    path('reply/<int:pk>/', Reply, name='reply'),     
 ]

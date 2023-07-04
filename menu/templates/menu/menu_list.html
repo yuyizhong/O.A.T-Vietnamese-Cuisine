@@ -32,11 +32,9 @@
 
                         <!-- User Links -->
                         {% if request.user.is_authenticated %}
-                        <a href="{% url 'leave-review' menu.id %}">Leave a Review</a>
-                        <p>{{menu.id}}</p>
-                        <a href="#">Edit Review</a>
-                        <a href="#">Delete Review</a>
+                        <a href="{% url 'leave-review' menu.id %}">Leave a Review</a>                                               
                         {% endif %}
+                        <br>                      
 
                         <!-- Admin Links -->
                         {% if request.user.is_authenticated and request.user.is_staff %}
@@ -47,8 +45,7 @@
                         {% elif menu.status == 'hidden' %}
                         <a href="{% url 'hide-menu' menu.id %}">Unhide Menu</a>
                         {% endif %}
-                        <a href="{% url 'delete-menu' menu.id %}">Delete Menu</a>
-                        <a href="#">Reply to Review</a>
+                        <a href="{% url 'delete-menu' menu.id %}">Delete Menu</a>                        
                         {% endif %}
 
                     </div>

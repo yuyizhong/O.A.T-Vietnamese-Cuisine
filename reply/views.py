@@ -3,7 +3,7 @@ from .models import Reply
 from review.models import Review
 from .forms import ReplyForm
 
-def leave_review(request, pk):
+def Reply(request, pk):
 
     review = Review.objects.get(id=pk)
     form = ReplyForm()
@@ -12,15 +12,14 @@ def leave_review(request, pk):
         form = ReplyForm(request.POST, request.FILES)
         if form.is_valid():
             reply = form.save(commit=False)
-            reply.user = request.user
-          
+            reply.user = request.user          
             reply.review = review
             reply.save()
-        return redirect('item-reviews') 
+        return redirect('item-reviews')
 
     context = {
         'form': form,
-        'menu_id': menu.id,
+        'review_id': review.id,
         'review': review
     }
 

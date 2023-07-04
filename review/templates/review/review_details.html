@@ -32,7 +32,9 @@
                     </div>
                     {% endif %}
                     {% if user.is_staff %}
-                    <button class="btn btn-primary">Reply</button>
+                    <button class="btn btn-primary">
+                        <a href="{% url 'reply' review.id %}">Reply</a>
+                    </button>
                     {% endif %}
                 </div>
             </div>

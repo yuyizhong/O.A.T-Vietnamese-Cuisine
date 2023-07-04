@@ -20,10 +20,7 @@ class Review(models.Model):
     content = models.TextField()
     image = CloudinaryField('image', default=None, blank=True, null=True)
     visit_date = models.DateField()
-
-    def get_total_reviews(self):
-        print('sfdsgdfdsgfesgfdg')
-        # return self.rating.count()
+   
 
     class Meta:
         """ Order by time of creation """
@@ -31,3 +28,12 @@ class Review(models.Model):
 
     def __str__(self):
         return f"Review for {self.menu_item.name} by {self.user.username}"
+
+    @classmethod
+    def average_rating(cls, menu_item):
+        reviews = cls.objects.filter(menu_item=menu_item)
+        if reviews.exists():
+            total_rating = sum(review.rating for review in reviews)
+            return total_rating / reviews.count()
+        else:
+            return 0

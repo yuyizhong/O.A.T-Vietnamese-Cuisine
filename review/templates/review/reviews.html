@@ -16,7 +16,22 @@
                 <div class="card-body">
                     <h5 class="card-title">{{ menuitem.name }}</h5>
                     <div class="rating">
-                       <p>Average Rating</p>
+                        {% for menu_name, average_rating in avg.items %}
+                        {% if menu_name == menuitem.name %}
+                        {% if average_rating %}
+                        {{average_rating}}
+                        {{average_rating|floatformat:0}}
+                            {% with full_stars=average_rating|floatformat:0 %}
+                                {% if average_rating != full_stars %}
+                                    <i class="fa fa-star-half"></i>
+                                {% endif %}
+                                {% for i in ""|rjust:full_stars %}
+                                    <i class="fa fa-star"></i>
+                                {% endfor %}
+                            {% endwith %}
+                        {% endif %}
+                        {% endif %}
+                        {% endfor %}
                     </div>
                     <p class="card-text">Reviews: <a href="{% url 'item-reviews' menuitem.id %}">{{ menuitem.review_set.count }}</a></p>
                 </div>
@@ -28,9 +43,4 @@
 
     {% endfor %}
 </div>
-
-
-<p>test{{ reviews.count }}</p>
-
-
 {% endblock content %}

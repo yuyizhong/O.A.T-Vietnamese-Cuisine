@@ -5,63 +5,47 @@
     <h1>Reviews</h1>
 
     {% for category in categories %}
-    <h2>{{ category.name }}</h2> <!-- Display the category name -->
+    <h2>{{ category.name }}</h2>
 
     <div class="row">
-        {% for item in menuitems %}
-        <p>counting the item{{item.name}}</p>
+        {% for menuitem, average_rating in average_ratings.items %}
+        {% for menuitem in menuitems %}
      
-        
-        {% if item.reviews.count > 0 %}
-        
-        <div class="media">
-            <img src="{{ item.menu_image.url }}" class="mr-3" alt="{{ menu_item.name }}"
-            width="100" height="100">
-        </div>
-        {% for review in reviews %}
-        
-        {% if review.menu_item.category == category and review.menu_item.name == item.name %}
-        <div class="col-md-6 mb-4">
+        {% if menuitem.category == category %}        
+        <div class="col-md-3 mb-4">
             <div class="card">
+                <img src="{{ menuitem.menu_image.url }}" class="card-img-top" alt="{{ menuitem.name }}">
                 <div class="card-body">
-                    <div class="media">
-                        <!-- <img src="{{ review.menu_item.menu_image.url }}" class="mr-3" alt="{{ review.menu_item.name }}"
-                            width="100" height="100"> -->
-                        <div class="media-body">
-                            <h5 class="card-title">{{ review.menu_item.name }}</h5>
-                            <div class="rating">
-                            {% for i in ""|rjust:review.rating %}
-                                <i class="fa fa-star"></i>
-                            {% endfor %}
-                            </div>
-                            <p class="card-subtitle mb-2 text-muted">{{ review.user.username }} created on: {{ review.created_date}}
-                            </p>
-                            <p class="card-text">{{ review.content }}</p>
-                            {% if review.image %}
-                            <img src="{{ review.image.url }}" alt="Review Image" class="img-fluid mb-2">
-                            {% endif %}
-                            <p class="card-text"><small class="text-muted">Visited on: {{ review.visit_date }}</small>
-                            </p>
-                            {% if review.reply_set.exists %}
-                                <div class="admin-reply">
-                                    <p class="card-text"><small class="text-muted">Admin Replies:</small></p>
-                                    {% for reply in review.reply_set.all %}
-                                        <p class="card-text"><small class="text-muted">{{ reply.content }}</small></p>
-                                    {% endfor %}
-                                </div>
-                            {% endif %}
-                            {% if user.is_staff %}
-                            <button class="btn btn-primary">Reply</button>
-                            {% endif %}
-                        </div>
+                    <h5 class="card-title">{{ menuitem.name }}</h5>
+                    <div class="rating">
+                        {% with average_rating=menuitem.review.average_rating %}
+                          {% if average_rating %}
+                            {% with integer_rating=average_rating|floatformat:0 %}
+                              {% with decimal_rating=average_rating|floatformat:1 %}
+                                {% for i in ""|rjust:integer_rating %}
+                                  <i class="fa fa-star"></i>
+                                {% endfor %}
+                                {% if decimal_rating > 0 %}
+                                  <i class="fa fa-star-half"></i>
+                                {% endif %}
+                              {% endwith %}
+                            {% endwith %}
+                          {% endif %}
+                        {% endwith %}
                     </div>
+                    <p class="card-text">Reviews: <a href="{% url 'item-reviews' menuitem.id %}">{{ menuitem.review_set.count }}</a></p>
                 </div>
             </div>
-        </div>
+        </div>        
         {% endif %}
         {% endfor %}
-        {% endif %}
-        {% endfor %}
-    {% endfor %}
     </div>
+
+    {% endfor %}
+</div>
+
+
+
+
+
 {% endblock content %}

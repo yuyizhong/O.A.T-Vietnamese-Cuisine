@@ -5,12 +5,14 @@ from menu.models import MenuItem, Category
 from .forms import ReviewForm
 
 
-def review_list(request):
-    # menu_id = request.GET.get('menu_id')
-    menuitems = MenuItem.objects.all
-    # if menu_id:
-    #     reviews = Review.objects.filter(menu_item_id=menu_id)
-    # else:
+def review_list(request):    
+    menuitems = MenuItem.objects.all()
+
+    avg ={}
+    for item in menuitems:
+        avg[item.name] = Review.average_rating(item)
+        print(avg[item.name])
+
     reviews = Review.objects.all()
 
     categories = Category.objects.all()
@@ -18,7 +20,8 @@ def review_list(request):
     context = {
         'reviews': reviews,
         'categories': categories,
-        'menuitems':menuitems,
+        'menuitems': menuitems,
+        'avg':avg, 
     }
 
     return render(request, 'review/reviews.html', context)

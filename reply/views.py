@@ -15,7 +15,7 @@ def Reply(request, pk):
             reply.user = request.user          
             reply.review = review
             reply.save()
-        return redirect('item-reviews')
+        return redirect('item-reviews', menu_id=review.menu_item.id)
 
     context = {
         'form': form,

@@ -3,4 +3,17 @@
 
 {% block content %}
 <h1>Reply to {{review.user}}</h1>
+
+<form method="POST" action="{% url 'reply' review.id %}" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <div>
+        <p>
+            <button type="submit">
+                Leave Reply
+            </button>
+        </p>
+    </div>
+</form>
+
 {% endblock %}

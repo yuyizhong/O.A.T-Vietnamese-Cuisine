@@ -54,7 +54,7 @@ def leave_review(request, pk):
           
             review.menu_item = menu
             review.save()
-        return redirect('menu-list') 
+        return redirect('item-reviews', menu_id=review.menu_item.id) 
 
     context = {
         'form': form,

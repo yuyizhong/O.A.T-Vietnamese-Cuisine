@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.contrib.auth import views as auth_views
 # from django.conf import settings
 # from django.conf.urls.static import static
 
@@ -24,5 +25,6 @@ urlpatterns = [
     path('menu/', include('menu.urls'), name='menu_urls'),
     path('review/', include('review.urls'), name='review_urls'),
     path('accounts/', include('allauth.urls')),
+    path('accounts/login/', auth_views.LoginView.as_view(template_name='registration/login.html'), name='account_login'),
     path('reply/', include('reply.urls')),
 ]

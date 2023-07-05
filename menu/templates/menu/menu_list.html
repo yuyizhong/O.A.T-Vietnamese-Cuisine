@@ -7,8 +7,6 @@
 <h2>{{ category.name }}</h2>
 <div class="row">
     {% for menu in menu_items %}
-
-
     <div class="col-md-6 mb-3">
         <div class="row">
             <div class="col-md-4">
@@ -16,25 +14,23 @@
                 <img src="{{ menu.menu_image.url }}" class="img-fluid" alt="Menu Image">
                 {% else %}
                 <img src="{% static 'menu/images/default.jpeg' %}" class="img-fluid" alt="Placeholder Image">
-                {% endif %}
-                <!-- Add average rating stars -->
-                <div class="rating">
-                    {{ menu.rating_stars | safe }}
-                </div>
+                {% endif %}                
             </div>
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-body">
-                        <a href = "{% url 'single-menu' menu.id %}" > <h5 class="card-title">{{ menu.name }}</h5> </a>
+                        <a href="{% url 'single-menu' menu.id %}"><h5 class="card-title">{{ menu.name }}</h5></a>
                         <p class="card-text">Price: {{ menu.formatted_price }}</p>
                         <p class="card-text">{{ menu.description }}</p>
-                        <p>{{menu_item_id}}</p>
+                        <p>{{ menu_item_id }}</p>
 
-                        <!-- User Links -->
-                        {% if request.user.is_authenticated %}
-                        <a href="{% url 'leave-review' menu.id %}">Leave a Review</a>                                               
-                        {% endif %}
-                        <br>                      
+                         <!-- User Links -->
+                         {% if request.user.is_authenticated %}
+                         <a href="{% url 'leave-review' menu.id %}">Leave a Review</a>
+                         {% else %}
+                         <a href="{% url 'accounts' %}?next={% url 'leave-review' menu.id %}">Leave a Review</a>
+                         {% endif %}
+                         <br>
 
                         <!-- Admin Links -->
                         {% if request.user.is_authenticated and request.user.is_staff %}
@@ -45,9 +41,8 @@
                         {% elif menu.status == 'hidden' %}
                         <a href="{% url 'hide-menu' menu.id %}">Unhide Menu</a>
                         {% endif %}
-                        <a href="{% url 'delete-menu' menu.id %}">Delete Menu</a>                        
+                        <a href="{% url 'delete-menu' menu.id %}">Delete Menu</a>
                         {% endif %}
-
                     </div>
                 </div>
             </div>

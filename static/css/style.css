@@ -1,0 +1,30 @@
+
+/* Signup/ Sign out page style */
+.link {
+    color: #e4510d;
+    text-decoration: none;
+}
+
+.link:hover,
+.link:active {
+    color: #0977ec;
+    text-decoration: underline;
+}
+
+.btn-login {
+    background-color: #0977ec;
+    color: #fff;
+}
+
+.btn-login:hover,
+.btn-login:active {
+    background-color: #fff;
+    color: #23BBBB;
+}
+
+span {
+    color: blue;
+    font-weight: bold;
+}
+
+

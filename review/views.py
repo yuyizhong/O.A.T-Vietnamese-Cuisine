@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404, reverse
-# from django.core.paginator import Paginator
+from django.contrib import messages
 from .models import Review
 from menu.models import MenuItem, Category
 from .forms import ReviewForm
@@ -50,16 +50,18 @@ def leave_review(request, pk):
         form = ReviewForm(request.POST, request.FILES)
         if form.is_valid():
             review = form.save(commit=False)
-            review.user = request.user
-          
+            review.user = request.user          
             review.menu_item = menu
             review.save()
+            messages.success(request, 'Your review was successfully submitted!')
+           
         return redirect('item-reviews', menu_id=review.menu_item.id) 
 
     context = {
         'form': form,
         'menu_id': menu.id,
-        'menu': menu
+        'menu': menu,
+        'form_submitted': False,        
     }
 
     return render(request, 'review/leave_review.html', context)

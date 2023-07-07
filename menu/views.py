@@ -1,5 +1,6 @@
 from django.shortcuts import redirect, reverse
 from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib import messages
 
 
 from .models import MenuItem, Category  # Add import for Category model
@@ -40,6 +41,8 @@ def add_menu(request):
         form = MenuForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
+            # flash message
+            messages.success(request, 'Your menu is successfully added!')
             # Redirect to menu-list URL name
             return redirect('menu-list')
     form = MenuForm()
@@ -58,6 +61,8 @@ def edit_menu(request, menu_item_id):
 
         if form.is_valid():
             form.save()
+            # flash message
+            messages.success(request, 'Your menu is successfully updated!')
             return redirect('menu-list')
 
     context = {
@@ -70,8 +75,12 @@ def hide_menu(request, menu_item_id):
     menu_item = get_object_or_404(MenuItem, id=menu_item_id)
     if menu_item.status == 'approved':
         menu_item.status = 'hidden'
+        # flash message
+        messages.success(request, 'Your menu is now successfully hidden!')
     elif menu_item.status == 'hidden':
         menu_item.status = 'approved'
+        # flash message
+        messages.success(request, 'Your menu is now successfully unhidden!')
     menu_item.save()
     return redirect('menu-list')
 
@@ -79,4 +88,6 @@ def hide_menu(request, menu_item_id):
 def delete_menu(request, menu_item_id):
     menu_item = get_object_or_404(MenuItem, id=menu_item_id)
     menu_item.delete()
+    # flash message
+    messages.success(request, 'Your menu was successfully deleted!')
     return redirect('menu-list')

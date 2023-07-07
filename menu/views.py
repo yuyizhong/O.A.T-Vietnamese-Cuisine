@@ -37,6 +37,7 @@ def single_menu(request, menu_item_id):
     return render(request, "menu/single_menu.html", context)
 
 def add_menu(request):
+    """ Create menu view to create a menu if user is staff """
     if request.method == 'POST':
         form = MenuForm(request.POST, request.FILES)
         if form.is_valid():

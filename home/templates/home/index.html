@@ -1,36 +1,44 @@
 {% extends 'base.html' %}
 {% load static %}
 
-
-
 {% block content %}
 <div class="home_container">
     <div class="header">
-        <img src="static/home/images/logo.png" alt="Logo" class="logo">
+        <img src="{% static 'home/images/logo.png' %}" alt="Logo" class="logo">
         <h4>Vietnamese Cuisine</h4>
     </div>    
     <div class="row">
         <div class="col-md-4">
             <div class="container-section">
-                
-                <h2>Original Ingredients</h2>
-                <img src="static/home/images/original-ingredients.jpeg" alt="original-ingredients">
+                <div class="left-section">
+                    <h2>Original Ingredients</h2>
+                </div>
+                <div class="right-section">
+                    <img src="{% static 'home/images/original-ingredients.jpeg' %}" alt="original-ingredients">
+                </div>
             </div>
         </div>
         <div class="col-md-4">
-            <div class="container-section">                
-                <h2>Authentic Recipe</h2>
-                <img src="static/home/images/Authentic-recipe.jpeg" alt="Authentic-recipe">
+            <div class="container-section">
+                <div class="left-section">
+                    <h2>Authentic Recipe</h2>
+                </div>
+                <div class="right-section">
+                    <img src="{% static 'home/images/Authentic-recipe.jpeg' %}" alt="Authentic-recipe">
+                </div>
             </div>
         </div>
         <div class="col-md-4">
-            <div class="container-section">                
-                <h2>Trdition Method</h2>
-                <img src="static/home/images/trdition-method.jpeg" alt="trdition-method">
+            <div class="container-section">
+                <div class="left-section">
+                    <h2>Traditional Method</h2>
+                </div>
+                <div class="right-section">
+                    <img src="{% static 'home/images/trdition-method.jpeg' %}" alt="traditional-method">
+                </div>
             </div>
         </div>
     </div>
 </div>
 
-<script src="{% static 'js/rotate_containers.js' %}"></script>
 {% endblock %}

@@ -19,6 +19,9 @@
         </script>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% static 'menu/css/menus.css' %}">
+    {% block extra_css %}
+    {% endblock %}
+    
 </head>
 
 <body>
@@ -55,7 +58,7 @@
                     </li>
                     {% endif %}
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Contact</a>
+                        <a class="nav-link" href="/contact/">Contact</a>
                     </li>
                 </ul>
             </div>

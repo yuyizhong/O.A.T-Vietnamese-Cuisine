@@ -1,34 +1,61 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
     <div class="container">
-        <h1>Contact Us</h1>
-
+        <div class="menu-text">
+            <h1 class="color">Contact Us</h1>
+        </div>
+        <br>
+        <br>
         <div class="row">
             <div class="col-md-6">
-                <h3>Address</h3>
+                <h2>Our Location</h2>
+                <p class="strong">O.A.T Vietnamese Cuisine</p>
                 <p>101 Oxford Street</p>
                 <p>London, City Of Westminster</p>
                 <p>Greater London, W1D 2LY</p>
 
-                <h3>Opening Hours</h3>
-                <p>Monday-Friday: 9am-5pm</p>
-                <p>Saturday: 10am-3pm</p>
-                <p>Sunday: Closed</p>
+                <h2>Opening Hours</h2>
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <th>Day</th>
+                            <th>Open</th>
+                            <th>Close</th>
+                        </tr>
+                        <tr>
+                            <td>Mon - Fri</td>
+                            <td>12:00</td>
+                            <td>10:30</td>
+                        </tr>
+                        <tr>
+                            <td>Saturday</td>
+                            <td>12:00</td>
+                            <td>11:30</td>
+                        </tr>
+                        <tr>
+                            <td>Sunday</td>
+                            <td>/</td>
+                            <td>/</td>
+                        </tr>
+                    </tbody>
+                </table>
 
-                <h3>Telephone</h3>
-                <p>123-456-7890</p>
-
-                <h3>Email</h3>
-                <p>info@example.com</p>
+                <div id="contact-details">
+                    <h2>Contact Dtails</h2>
+                    <p><a href="tel:+442036669898">Phone: +44 203 666 9898</a></p>
+                    <p><a href="mailto:info@oat.co.uk">Email: oat.co.uk</a></p>
+                </div>
             </div>
 
             <div class="col-md-6">
                 <h3>Google Map</h3>
                 <div class="embed-responsive embed-responsive-16by9">
-                    <iframe src="https://www.google.com/maps/place/101+Oxford+St,+London+W1D+1BY/@51.5160559,-0.1356121,16.63z/data=!4m6!3m5!1s0x48761b2cbcba125f:0x2bb1a8f402316b06!8m2!3d51.5161309!4d-0.1351403!16s%2Fg%2F11c1zc_dhy?entry=ttu" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                    <iframe class="embed-responsive-item" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2482.840932849544!2d-0.13771522405851472!3d51.516134210066106!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761b2cbcba125f%3A0x2bb1a8f402316b06!2s101%20Oxford%20St%2C%20London%20W1D%201BY!5e0!3m2!1sen!2suk!4v1688828421783!5m2!1sen!2suk" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
         </div>
     </div>
 {% endblock %}
+

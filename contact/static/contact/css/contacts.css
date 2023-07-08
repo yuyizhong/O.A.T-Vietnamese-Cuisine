@@ -1,0 +1,34 @@
+.embed-responsive iframe {
+    width: 100%;
+    height: 100%;
+}
+
+@media (max-width: 767px) {
+    .embed-responsive {
+        padding-bottom: 56.25%;
+    }
+
+    .embed-responsive iframe.embed-responsive-item {
+        width: 75%;
+        height: 200px; 
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .embed-responsive {
+        padding-bottom: 75%;
+    }
+
+    .embed-responsive iframe.embed-responsive-item {
+        width: 100%;
+        height: 300px; 
+    }
+}
+
+.color {
+    color: yellow;
+}
+
+.strong {
+    font-size: large;
+}

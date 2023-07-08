@@ -1,45 +1,32 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block head %}
-<link rel="stylesheet" href="{% static 'home/css/home.css' %}">
-<script src="{% static 'home/js/script.js' %}"></script>
-{% endblock %}
+
 
 {% block content %}
-<div class="container">
+<div class="home_container">
+    <div class="header">
+        <img src="static/home/images/logo.png" alt="Logo" class="logo">
+        <h4>Vietnamese Cuisine</h4>
+    </div>    
     <div class="row">
         <div class="col-md-4">
             <div class="container-section">
-                <div class="header">
-                    <img src="" alt="Logo" class="logo">
-                    <h4>Vietnamese Cuisine</h4>
-                </div>
-                <h2>Container Section 1</h2>
-                <p>XXX..</p>
-                <img src="path_to_image" alt="Image 1">
+                
+                <h2>Original Ingredients</h2>
+                <img src="static/home/images/original-ingredients.jpeg" alt="original-ingredients">
             </div>
         </div>
         <div class="col-md-4">
-            <div class="container-section">
-                <div class="header">
-                    <img src="path_to_logo_image" alt="Logo" class="logo">
-                    <h4>Vietnamese Cuisine</h4>
-                </div>
-                <h2>Container Section 2</h2>
-                <p>XXX..</p>
-                <img src="path_to_image" alt="Image 2">
+            <div class="container-section">                
+                <h2>Authentic Recipe</h2>
+                <img src="static/home/images/Authentic-recipe.jpeg" alt="Authentic-recipe">
             </div>
         </div>
         <div class="col-md-4">
-            <div class="container-section">
-                <div class="header">
-                    <img src="path_to_logo_image" alt="Logo" class="logo">
-                    <h4>Vietnamese Cuisine</h4>
-                </div>
-                <h2>Container Section 3</h2>
-                <p>XXX..</p>
-                <img src="path_to_image" alt="Image 3">
+            <div class="container-section">                
+                <h2>Trdition Method</h2>
+                <img src="static/home/images/trdition-method.jpeg" alt="trdition-method">
             </div>
         </div>
     </div>

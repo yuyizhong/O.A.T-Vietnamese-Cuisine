@@ -3,29 +3,7 @@
     height: 100%;
 }
 
-@media (max-width: 767px) {
-    .embed-responsive {
-        padding-bottom: 56.25%;
-    }
-
-    .embed-responsive iframe.embed-responsive-item {
-        width: 75%;
-        height: 100%
-    }
-}
-
-@media (min-width: 768px) and (max-width: 991px) {
-    .embed-responsive {
-        padding-bottom: 75%;
-    }
-
-    /* .embed-responsive iframe.embed-responsive-item {
-        width: 100%;
-        height: 300px; 
-    } */
-}
-
 .strong {
     font-size: large;
-    color:aqua;
+    color:darkblue;
 }

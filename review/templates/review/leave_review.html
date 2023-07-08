@@ -4,18 +4,26 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-<h1>Leave A Review for {{menu.name}}</h1>
 
-<form method="POST" action="{% url 'leave-review' menu_id %}" enctype="multipart/form-data">
-    {{ form|crispy }}
-    {% csrf_token %}
-    
-    <div>
-        <p>
-            <button type="submit">
-                Leave Review
-            </button>
-        </p>
+<div class="menu-text">
+    <h1>Leave A Review for {{menu.name}}</h1>
+</div>
+<br>
+<br>
+<div class="row justify-content-center">
+    <div class="col-md-8 mb-2 menu-form mx-auto">
+        <form method="POST" action="{% url 'leave-review' menu_id %}" enctype="multipart/form-data">
+            {{ form|crispy }}
+            {% csrf_token %}         
+            
+            <div>
+                <p>
+                    <button class = "btn-login" type="submit">
+                        Leave Review
+                    </button>
+                </p>
+            </div>
+        </form>
     </div>
-</form>
+</div>
 {% endblock %}

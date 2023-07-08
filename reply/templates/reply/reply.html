@@ -4,19 +4,27 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-<h1>Reply to {{review.user}}</h1>
-<form method="POST" action="{% url 'reply:reply' review.id %}" enctype="multipart/form-data">
-    {{ form|crispy }}
-    {% csrf_token %}
-    
-    <div>
-        <p>
-            <button type="submit">
-                Reply
-            </button>
-        </p>
-    </div>
-</form>
 
+<div class="menu-text">
+    <h1>Reply to {{review.user}}</h1>
+</div>
+<br>
+<br>
+<div class="row justify-content-center">
+    <div class="col-md-8 mb-2 menu-form mx-auto">
+        <form method="POST" action="{% url 'reply:reply' review.id %}" enctype="multipart/form-data">
+            {{ form|crispy }}
+            {% csrf_token %}         
+            
+            <div>
+                <p>
+                    <button class = "btn-login" type="submit">
+                        Reply
+                    </button>
+                </p>
+            </div>
+        </form>
+    </div>
+</div>
 
 {% endblock %}

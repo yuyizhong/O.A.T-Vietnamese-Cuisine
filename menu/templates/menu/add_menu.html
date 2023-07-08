@@ -1,21 +1,28 @@
 {% extends 'base.html' %}
 {% load static %}
-
 {% load crispy_forms_tags %}
 
-
 {% block content %}
-<h1>Add Menu</h1>
-<form method="POST" action="{% url 'add-menu' %}" enctype="multipart/form-data">
-    {{ form|crispy }}
-    {% csrf_token %}
-    
-    <div>
-        <p>
-            <button type="submit">
-                Add Menu
-            </button>
-        </p>
+
+<div class="menu-text">
+    <h1>Add Menu</h1>
+</div>
+<br>
+<br>
+<div class="row justify-content-center">
+    <div class="col-md-8 mb-2 menu-form mx-auto">
+        <form method="POST" action="{% url 'add-menu' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form|crispy }}
+            
+            <div>
+                <p>
+                    <button class = "btn-login" type="submit">
+                        Add Menu
+                    </button>
+                </p>
+            </div>
+        </form>
     </div>
-</form>
+</div>
 {% endblock %}

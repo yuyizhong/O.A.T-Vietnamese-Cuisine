@@ -1,7 +1,16 @@
 {% extends 'base.html' %}
 {% load static %}
 
+
 {% block content %}
+<div class="menu-text">
+    <h1>Daily Menu</h1>
+{% if request.user.is_authenticated and request.user.is_staff %}
+<a href="{% url 'add-menu' %}">Add Menu</a>
+{% endif %}
+</div>
+<br>
+<br>
 <!-- Display menu items by category -->
 {% for category, menu_items in menu_items_by_category.items %}
 <h2>{{ category.name }}</h2>
@@ -33,8 +42,7 @@
                          <br>
 
                         <!-- Admin Links -->
-                        {% if request.user.is_authenticated and request.user.is_staff %}
-                        <a href="{% url 'add-menu' %}">Add Menu</a>
+                        {% if request.user.is_authenticated and request.user.is_staff %}                      
                         <a href="{% url 'edit-menu' menu.id %}">Edit Menu</a>
                         {% if menu.status == 'approved' %}
                         <a href="{% url 'hide-menu' menu.id %}">Hide Menu</a>

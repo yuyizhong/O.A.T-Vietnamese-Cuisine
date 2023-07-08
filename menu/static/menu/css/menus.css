@@ -1,0 +1,22 @@
+/* Menus Pages */
+
+.menu-text h1 {
+  text-align: center;
+}
+
+.menu-text a {
+  display: block;
+  text-align: center;
+  margin-top: 10px; 
+}
+
+/* Menu Forms  */
+.menu-form {
+  background-color: #d0d4d4; /* Cream background color */
+}
+.menu-form label {
+  font-weight: bold; /* Bold labels */
+}
+.content {
+  margin-bottom: 80px; 
+}

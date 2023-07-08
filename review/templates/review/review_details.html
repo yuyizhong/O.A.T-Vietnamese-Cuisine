@@ -32,8 +32,8 @@
                     </div>
                     {% endif %}
                     {% if user.is_staff %}
-                    <button class="btn btn-primary">
-                        <a href="{% url 'reply:reply' review.id %}">Reply</a>
+                    <button class="btn">
+                        <a class="btn btn-login" href="{% url 'reply:reply' review.id %}">Reply</a>
                     </button>
                     {% endif %}
                 </div>

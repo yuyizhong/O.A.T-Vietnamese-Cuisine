@@ -27,3 +27,7 @@ span {
     font-weight: bold;
 }
 
+.btn-login a {
+    color: white;
+    text-decoration: none;
+}

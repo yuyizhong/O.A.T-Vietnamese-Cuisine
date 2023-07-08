@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
+from math import floor
 
 
 class Review(models.Model):
@@ -37,3 +38,7 @@ class Review(models.Model):
             return total_rating / reviews.count()
         else:
             return 0
+    @classmethod
+    def full_stars(cls, menu_item):
+        average_rating = cls.average_rating(menu_item)
+        return floor(average_rating)

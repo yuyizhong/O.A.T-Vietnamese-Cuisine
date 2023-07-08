@@ -9,11 +9,12 @@ def review_list(request):
     menuitems = MenuItem.objects.all()
 
     avg ={}
+    full_stars = {}
     for item in menuitems:
-        avg[item.name] = Review.average_rating(item)
-        print(avg[item.name])
+        avg[item.name] = Review.average_rating(item)        
+        full_stars[item.name] = Review.full_stars(item)
 
-    reviews = Review.objects.all()
+    reviews = Review.objects.all()   
 
     categories = Category.objects.all()
 
@@ -21,7 +22,8 @@ def review_list(request):
         'reviews': reviews,
         'categories': categories,
         'menuitems': menuitems,
-        'avg':avg, 
+        'avg':avg,
+        'full_stars': full_stars, 
     }
 
     return render(request, 'review/reviews.html', context)

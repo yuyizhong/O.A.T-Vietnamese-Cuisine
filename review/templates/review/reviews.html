@@ -2,7 +2,11 @@
 
 {% block content %}
 <div class="container">
+    <div class="menu-text">
     <h1>Reviews</h1>
+    </div>
+    <br>
+    <br>
 
     {% for category in categories %}
     <h2>{{ category.name }}</h2>
@@ -19,16 +23,19 @@
                         {% for menu_name, average_rating in avg.items %}
                         {% if menu_name == menuitem.name %}
                         {% if average_rating %}
-                        {{average_rating}}
-                        {{average_rating|floatformat:0}}
-                            {% with full_stars=average_rating|floatformat:0 %}                               
-                                {% for i in ""|rjust:full_stars %}
-                                    <i class="fa fa-star"></i>
-                                {% endfor %}
-                                {% if average_rating > full_stars %}
-                                <i class="fa fa-star-half"></i>
-                                {% endif %}
-                            {% endwith %}
+                        {{ average_rating|floatformat:1 }}
+                        {% endif %}
+                        {% endif %}
+                        {% endfor %}
+                        {% for menu_name, full_stars in full_stars.items %}
+                        {% if menu_name == menuitem.name %}
+                        {% if full_stars %}                         
+                        {% for i in ""|rjust:full_stars %}
+                            <i class="fa fa-star"></i>
+                        {% endfor %}
+                        {% if average_rating != full_stars %}
+                        <i class="fa fa-star-half"></i>
+                        {% endif %}
                         {% endif %}
                         {% endif %}
                         {% endfor %}
@@ -43,4 +50,4 @@
 
     {% endfor %}
 </div>
-{% endblock content %}
+{% endblock %}

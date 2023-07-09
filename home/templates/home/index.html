@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 
+
 {% block content %}
 <div class="home_container">
     <div class="header">
@@ -10,31 +11,31 @@
     <div class="row">
         <div class="col-md-4">
             <div class="container-section">
-                <div class="left-section">
-                    <h2>Original Ingredients</h2>
+                <div >
+                    <h2 class="left-section">Original Ingredients</h2>
                 </div>
-                <div class="right-section">
-                    <img src="{% static 'home/images/original-ingredients.jpeg' %}" alt="original-ingredients">
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="container-section">
-                <div class="left-section">
-                    <h2>Authentic Recipe</h2>
-                </div>
-                <div class="right-section">
-                    <img src="{% static 'home/images/Authentic-recipe.jpeg' %}" alt="Authentic-recipe">
+                <div >
+                    <img class="right-section" src="{% static 'home/images/original-ingredients.jpeg' %}" alt="original-ingredients">
                 </div>
             </div>
         </div>
         <div class="col-md-4">
             <div class="container-section">
-                <div class="left-section">
-                    <h2>Traditional Method</h2>
+                <div >
+                    <h2 class="left-section">Authentic Recipe</h2>
                 </div>
-                <div class="right-section">
-                    <img src="{% static 'home/images/trdition-method.jpeg' %}" alt="traditional-method">
+                <div >
+                    <img class="right-section" src="{% static 'home/images/Authentic-recipe.jpeg' %}" alt="Authentic-recipe">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="container-section">
+                <div>
+                    <h2 class="left-section">Traditional Method</h2>
+                </div>
+                <div >
+                    <img class="right-section" src="{% static 'home/images/trdition-method.jpeg' %}" alt="traditional-method">
                 </div>
             </div>
         </div>

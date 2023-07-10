@@ -5,13 +5,14 @@
   justify-content: center;
   align-items: center;
   min-height: calc(100vh - 100px);
-  padding: 20px;
 }
 
 .header {
   position: absolute;
   top: 0;
   left: 0;
+  display: flex;
+  align-items: center;
 }
 
 .header .logo {
@@ -22,18 +23,15 @@
 
 .header h4 {
   margin: 0;
-  font-size: 18px;
+  font-size: 25px;
 }
 
-h2 {
+.container-section h2 {
     font-size: 24px;
     margin-top: 0;
     color:darkslateblue;
 }
 
-p {
-    margin-top: 10px;
-}  
   .container-section {
     display: none;
     width: 100%;
@@ -50,12 +48,7 @@ p {
     justify-content: center;
     align-items: center;
   }
-  
-  .container-section .section-content {
-    width: 75%;
-    text-align: center;
-  }
-  
+
   .container-section .section-content h2 {
     margin-bottom: 1rem;
   }

@@ -1,62 +1,65 @@
 {% extends 'base.html' %}
 {% load static %}
 
-
 {% block content %}
 <div class="menu-text">
     <h1>Daily Menu</h1>
-{% if request.user.is_authenticated and request.user.is_staff %}
-<a href="{% url 'add-menu' %}">Add Menu</a>
-{% endif %}
+    {% if request.user.is_authenticated and request.user.is_staff %}
+    <a href="{% url 'add-menu' %}">Add Menu</a>
+    {% endif %}
 </div>
 <br>
 <br>
 <!-- Display menu items by category -->
 {% for category, menu_items in menu_items_by_category.items %}
 <h2>{{ category.name }}</h2>
+<br>
 <div class="row">
     {% for menu in menu_items %}
+
     <div class="col-md-6 mb-3">
-        <div class="row">
-            <div class="col-md-4">
-                {% if menu.menu_image.url is not None %}
-                <img src="{{ menu.menu_image.url }}" class="img-fluid" alt="Menu Image">
-                {% else %}
-                <img src="{% static 'menu/images/default.jpeg' %}" class="img-fluid" alt="Placeholder Image">
-                {% endif %}                
+        <div class="card">
+            <img src="{{ menu.menu_image.url }}" class="card-img-top menu-image" alt="Menu Image">
+            <div class="card-body">
+                <h5 class="card-title">{{ menu.name }}</h5>
+                <p class="card-text">Price: {{ menu.formatted_price }}</p>
+                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#menuModal"
+                    data-menu-name="{{ menu.name }}" data-menu-price="{{ menu.formatted_price }}"
+                    data-menu-description="{{ menu.description }}">View Details</button>
             </div>
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-body">
-                        <a href="{% url 'single-menu' menu.id %}"><h5 class="card-title">{{ menu.name }}</h5></a>
-                        <p class="card-text">Price: {{ menu.formatted_price }}</p>
-                        <p class="card-text">{{ menu.description }}</p>
-                        <p>{{ menu_item_id }}</p>
-
-                         <!-- User Links -->
-                         {% if request.user.is_authenticated %}
-                         <a href="{% url 'leave-review' menu.id %}">Leave a Review</a>
-                         {% else %}
-                         <a href="{% url 'account_login' %}?next={% url 'leave-review' menu.id %}">Leave a Review</a>
-                         {% endif %}
-                         <br>
-
-                        <!-- Admin Links -->
-                        {% if request.user.is_authenticated and request.user.is_staff %}                      
-                        <a href="{% url 'edit-menu' menu.id %}">Edit Menu</a>
-                        {% if menu.status == 'approved' %}
-                        <a href="{% url 'hide-menu' menu.id %}">Hide Menu</a>
-                        {% elif menu.status == 'hidden' %}
-                        <a href="{% url 'hide-menu' menu.id %}">Unhide Menu</a>
-                        {% endif %}
-                        <a href="{% url 'delete-menu' menu.id %}">Delete Menu</a>
-                        {% endif %}
-                    </div>
-                </div>
+            <!-- Admin Links -->
+            {% if request.user.is_authenticated and request.user.is_staff %}
+            <div class="card-footer">
+                <a href="{% url 'edit-menu' menu.id %}">Edit Menu</a>
+                {% if menu.status == 'approved' %}
+                <a href="{% url 'hide-menu' menu.id %}">Hide Menu</a>
+                {% elif menu.status == 'hidden' %}
+                <a href="{% url 'hide-menu' menu.id %}">Unhide Menu</a>
+                {% endif %}
+                <a href="{% url 'delete-menu' menu.id %}">Delete Menu</a>
             </div>
+            {% endif %}
         </div>
     </div>
     {% endfor %}
 </div>
 {% endfor %}
+<!-- Modal -->
+<div class="modal fade" id="menuModal" tabindex="-1" aria-labelledby="menuModalTitle" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header text-light ">
+                <h5 class="modal-title" id="menuModalTitle"></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p id="menuName"></p>
+                <p id="menuDescription"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

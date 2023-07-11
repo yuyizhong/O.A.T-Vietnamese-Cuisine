@@ -33,11 +33,17 @@ class MenuAppTests(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'menu/add_menu.html')
     
-     def test_edit_menu_view(self):
+    def test_edit_menu_view(self):
         self.client.force_login(self.user)
         url = reverse('edit-menu', args=[self.menu_item.id])
         response = self.client.get(url)
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'menu/edit_menu.html')
 
-   
+    def test_hide_menu_view(self):
+        self.client.force_login(self.user)
+        url = reverse('hide-menu', args=[self.menu_item.id])
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 302)  # Expecting a redirect
+
+    

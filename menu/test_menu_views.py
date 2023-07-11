@@ -46,4 +46,8 @@ class MenuAppTests(TestCase):
         response = self.client.get(url)
         self.assertEqual(response.status_code, 302)  # Expecting a redirect
 
-    
+    def test_delete_menu_view(self):
+        self.client.force_login(self.user)
+        url = reverse('delete-menu', args=[self.menu_item.id])
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 302)  # Expecting a redirect

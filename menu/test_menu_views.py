@@ -20,4 +20,9 @@ class MenuAppTests(TestCase):
             email='admin@example.com'
         )
 
-    
+    def test_menu_list_view(self):
+        url = reverse('menu-list')
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'menu/menu_list.html')
+   

@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
 <div class="container">
@@ -16,7 +17,7 @@
         {% if menuitem.category == category %}        
         <div class="col-md-3 mb-4">
             <div class="card">
-                <img src="{{ menuitem.menu_image.url }}" class="card-img-top" alt="{{ menuitem.name }}">
+                <img class="menu-image" src="{{ menuitem.menu_image.url }}" class="card-img-top" alt="{{ menuitem.name }}">
                 <div class="card-body">
                     <h5 class="card-title">{{ menuitem.name }}</h5>
                     <div class="rating">

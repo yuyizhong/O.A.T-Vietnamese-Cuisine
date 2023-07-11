@@ -26,15 +26,6 @@ def menu_list(request):
     context = {'menu_items_by_category': menu_items_by_category}
     return render(request, "menu/menu_list.html", context)
 
-def single_menu(request, menu_item_id):
-
-    item = get_object_or_404(MenuItem, id=menu_item_id)
-
-    context = {
-        'item':item,
-    }
-
-    return render(request, "menu/single_menu.html", context)
 
 def add_menu(request):
     """ Create menu view to create a menu if user is staff """

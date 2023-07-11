@@ -1,0 +1,23 @@
+from django.test import TestCase
+from django.urls import reverse
+from django.contrib.auth.models import User
+from .models import MenuItem, Category
+
+
+class MenuAppTests(TestCase):
+
+    def setUp(self):
+        self.category = Category.objects.create(name='Test Category')
+        self.menu_item = MenuItem.objects.create(
+            name='Test Menu Item',
+            description='Test description',
+            price=9.99,
+            category=self.category
+        )
+        self.user = User.objects.create_superuser(
+            username='admin',
+            password='adminpassword',
+            email='admin@example.com'
+        )
+
+    

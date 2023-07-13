@@ -21,12 +21,23 @@
         <div class="card">
             <img src="{{ menu.menu_image.url }}" class="card-img-top menu-image" alt="Menu Image">
             <div class="card-body">
-                <h5 class="card-title">{{ menu.name }}</h5>
+                <h5 class="card-title">{{ menu.name }}</h5>                
                 <p class="card-text">Price: {{ menu.formatted_price }}</p>
-                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#menuModal"
+                <button class="btn btn-primary mr-2" data-bs-toggle="modal" data-bs-target="#menuModal"
                     data-menu-name="{{ menu.name }}" data-menu-price="{{ menu.formatted_price }}"
                     data-menu-description="{{ menu.description }}">View Details</button>
-            </div>
+                <!-- User Links -->
+                {% if request.user.is_authenticated %}
+                <span>
+                    <a href="{% url 'leave-review' menu.id %}" class="btn btn-secondary btn-sm">Leave a Review</a>
+                </span>  
+                    {% else %}
+                <span>
+                    <a href="{% url 'account_login' %}?next={% url 'leave-review' menu.id %}" class="btn btn-secondary btn-sm">Leave a Review</a>
+                </span>   
+                {% endif %}
+            </div>          
+            
             <!-- Admin Links -->
             {% if request.user.is_authenticated and request.user.is_staff %}
             <div class="card-footer">

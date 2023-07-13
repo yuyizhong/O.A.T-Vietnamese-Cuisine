@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from .models import Reply
 from review.models import Review
 from .forms import ReplyForm
+from django.contrib import messages
 
 def Reply(request, pk):
 
@@ -15,6 +16,8 @@ def Reply(request, pk):
             reply.user = request.user          
             reply.review = review
             reply.save()
+            # flash message
+            messages.success(request, 'Your successfully replied to the review!')
         return redirect('item-reviews', menu_id=review.menu_item.id)
 
     context = {

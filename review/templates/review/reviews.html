@@ -4,13 +4,13 @@
 {% block content %}
 <div class="container">
     <div class="menu-text">
-    <h1 class ="text-primary display-4 fw-bold">Reviews</h1>
+    <h1 class ="text-success display-4 fw-bold">Reviews</h1>
     </div>
     <br>
     <br>
 
     {% for category in categories %}
-    <h2 class="border border-dark p-3 mt-4 display-4 fw-bold">{{ category.name }}</h2>
+    <h2 class="border border-dark p-3 mt-4 display-4 fw-bold text-muted">{{ category.name }}</h2>
 
     <div class="row">
         {% for menuitem in menuitems %}
@@ -21,18 +21,12 @@
                 <div class="card-body">
                     <h5 class="card-title">{{ menuitem.name }}</h5>
                     <div class="rating">
-                        {% for menu_name, average_rating in avg.items %}
-                          {% if menu_name == menuitem.name %}
-                            {% if average_rating %}
-                              {{ average_rating|floatformat:1 }}
-                            {% endif %}
-                          {% endif %}
-                        {% endfor %}
+                        
                         {% for menu_name, full_stars in full_stars.items %}
                             {% if menu_name == menuitem.name %}
                                 {% if full_stars %}
                                     {% for i in ""|rjust:full_stars %}
-                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star text-warning"></i>
                                     {% endfor %}
                                 {% endif %}
                             {% endif %}
@@ -45,6 +39,13 @@
                               {% endif %}                            
                             {% endif %}
                         {% endfor %}
+                        {% for menu_name, average_rating in avg.items %}
+                          {% if menu_name == menuitem.name %}
+                            {% if average_rating %}
+                              {{ average_rating|floatformat:1 }}<span> </span><span class="text-muted">out of 5 rating</span>
+                            {% endif %}
+                          {% endif %}
+                        {% endfor %}                        
                     </div>
                       
                     <p class="card-text">Reviews: <a href="{% url 'item-reviews' menuitem.id %}">{{ menuitem.review_set.count }}</a></p>

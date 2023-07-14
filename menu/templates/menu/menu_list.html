@@ -3,7 +3,7 @@
 
 {% block content %}
 <div class="menu-text">
-    <h1 class ="text-primary display-4 fw-bold">Daily Menu</h1>
+    <h1 class ="text-success display-4 fw-bold">Daily Menu</h1>
     {% if request.user.is_authenticated and request.user.is_staff %}
     <a href="{% url 'add-menu' %}">Add Menu</a>
     {% endif %}
@@ -12,7 +12,7 @@
 <br>
 <!-- Display menu items by category -->
 {% for category, menu_items in menu_items_by_category.items %}
-<h2 class="border border-dark p-3 mt-4 display-4 fw-bold">{{ category.name }}</h2>
+<h2 class="border border-dark p-3 mt-4 display-4 fw-bold text-muted">{{ category.name }}</h2>
 <br>
 <div class="row">
     {% for menu in menu_items %}

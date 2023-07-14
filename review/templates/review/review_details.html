@@ -1,17 +1,17 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="container">
+<div class="container text-success">
     <h1>{{ item_reviews.0.menu_item.name }} Reviews</h1>
     <img src="{{ item_reviews.0.menu_item.menu_image.url }}" alt="{{ item_reviews.0.menu_item.name }}" class="mb-4"
         width="200" height="200">
 
     {% for review in item_reviews %}
-    <div class="card mb-4">
+    <div class="card mb-4 text-body">
         <div class="card-body">
             <div class="media">
                 <div class="media-body">                    
-                    <div class="rating">
+                    <div class="rating text-warning">
                         {% for i in ""|rjust:review.rating %}
                             <i class="fa fa-star"></i>
                         {% endfor %}

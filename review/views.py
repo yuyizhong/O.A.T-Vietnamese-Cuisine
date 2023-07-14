@@ -7,12 +7,17 @@ from .forms import ReviewForm
 
 def review_list(request):    
     menuitems = MenuItem.objects.all()
+    
 
     avg ={}
     full_stars = {}
+    half_stars = {}
+    
     for item in menuitems:
         avg[item.name] = Review.average_rating(item)        
         full_stars[item.name] = Review.full_stars(item)
+        
+        
 
     reviews = Review.objects.all()   
 
@@ -24,6 +29,7 @@ def review_list(request):
         'menuitems': menuitems,
         'avg':avg,
         'full_stars': full_stars, 
+        'half_stars': half_stars,
     }
 
     return render(request, 'review/reviews.html', context)

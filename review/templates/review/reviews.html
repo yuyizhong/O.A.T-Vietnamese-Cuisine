@@ -4,13 +4,13 @@
 {% block content %}
 <div class="container">
     <div class="menu-text">
-    <h1>Reviews</h1>
+    <h1 class ="text-primary display-4 fw-bold">Reviews</h1>
     </div>
     <br>
     <br>
 
     {% for category in categories %}
-    <h2>{{ category.name }}</h2>
+    <h2 class="border border-dark p-3 mt-4 display-4 fw-bold">{{ category.name }}</h2>
 
     <div class="row">
         {% for menuitem in menuitems %}
@@ -22,25 +22,31 @@
                     <h5 class="card-title">{{ menuitem.name }}</h5>
                     <div class="rating">
                         {% for menu_name, average_rating in avg.items %}
-                        {% if menu_name == menuitem.name %}
-                        {% if average_rating %}
-                        {{ average_rating|floatformat:1 }}
-                        {% endif %}
-                        {% endif %}
+                          {% if menu_name == menuitem.name %}
+                            {% if average_rating %}
+                              {{ average_rating|floatformat:1 }}
+                            {% endif %}
+                          {% endif %}
                         {% endfor %}
                         {% for menu_name, full_stars in full_stars.items %}
-                        {% if menu_name == menuitem.name %}
-                        {% if full_stars %}                         
-                        {% for i in ""|rjust:full_stars %}
-                            <i class="fa fa-star"></i>
+                            {% if menu_name == menuitem.name %}
+                                {% if full_stars %}
+                                    {% for i in ""|rjust:full_stars %}
+                                        <i class="fa fa-star"></i>
+                                    {% endfor %}
+                                {% endif %}
+                            {% endif %}
                         {% endfor %}
-                        {% if average_rating != full_stars %}
-                        <i class="fa fa-star-half"></i>
-                        {% endif %}
-                        {% endif %}
-                        {% endif %}
+                        {% for menu_name, half_stars in half_stars.items %}
+                            {% if menu_name == menuitem.name %}
+                              {% if half_stars %}
+                                <i class="fa fa-star-half"></i>
+                                {{ half_stars }}
+                              {% endif %}                            
+                            {% endif %}
                         {% endfor %}
                     </div>
+                      
                     <p class="card-text">Reviews: <a href="{% url 'item-reviews' menuitem.id %}">{{ menuitem.review_set.count }}</a></p>
                 </div>
             </div>

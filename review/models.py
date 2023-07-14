@@ -38,7 +38,16 @@ class Review(models.Model):
             return total_rating / reviews.count()
         else:
             return 0
+
     @classmethod
     def full_stars(cls, menu_item):
         average_rating = cls.average_rating(menu_item)
         return floor(average_rating)
+
+    
+    @classmethod
+    def half_stars(cls, menu_item):
+        average_rating = cls.average_rating(menu_item)
+        full_stars = cls.full_stars(menu_item)
+        decimal_part = average_rating - full_stars
+        return True if decimal_part > 0 else False

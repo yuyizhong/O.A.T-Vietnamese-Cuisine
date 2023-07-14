@@ -16,7 +16,7 @@ def review_list(request):
     for item in menuitems:
         avg[item.name] = Review.average_rating(item)        
         full_stars[item.name] = Review.full_stars(item)
-        
+        half_stars[item.name] = Review.half_stars(item)
         
 
     reviews = Review.objects.all()   

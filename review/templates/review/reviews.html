@@ -34,7 +34,7 @@
                         {% for menu_name, half_stars in half_stars.items %}
                             {% if menu_name == menuitem.name %}
                               {% if half_stars %}
-                                <i class="fa fa-star-half"></i>
+                                <i class="fa fa-star-half text-warning"></i>
                                 {{ half_stars }}
                               {% endif %}                            
                             {% endif %}
@@ -47,8 +47,11 @@
                           {% endif %}
                         {% endfor %}                        
                     </div>
-                      
-                    <p class="card-text">Reviews: <a href="{% url 'item-reviews' menuitem.id %}">{{ menuitem.review_set.count }}</a></p>
+                    {% if menuitem.review_set.count != 0 %}
+                        <p class="card-text">Reviews: <a href="{% url 'item-reviews' menuitem.id %}">{{ menuitem.review_set.count }}</a></p>
+                    {% else %}
+                        <p class="card-text">Reviews: 0</p>
+                    {% endif %}
                 </div>
             </div>
         </div>        

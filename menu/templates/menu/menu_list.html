@@ -16,46 +16,48 @@
 <br>
 <div class="row">
     {% for menu in menu_items %}
-
     <div class="col-md-6 mb-3">
-        <div class="card">
-            <div class="menu-container">
-            <img src="{{ menu.menu_image.url }}" class="card-img-top menu-image" alt="Menu Image">
-            </div>
-            <div class="card-body">
-                <h5 class="card-title">{{ menu.name }}</h5>                
-                <p class="card-text">Price: {{ menu.formatted_price }}</p>
-                <button class="btn btn-primary mr-2" data-bs-toggle="modal" data-bs-target="#menuModal"
-                    data-menu-name="{{ menu.name }}" data-menu-price="{{ menu.formatted_price }}"
-                    data-menu-description="{{ menu.description }}">View Details</button>
-                <!-- User Links -->
-                {% if request.user.is_authenticated %}
-                <span>
-                    <a href="{% url 'leave-review' menu.id %}" class="btn btn-secondary btn-sm">Leave a Review</a>
-                </span>  
-                    {% else %}
-                <span>
-                    <a href="{% url 'account_login' %}?next={% url 'leave-review' menu.id %}" class="btn btn-secondary btn-sm">Leave a Review</a>
-                </span>   
-                {% endif %}
-            </div>          
-            
-            <!-- Admin Links -->
-            {% if request.user.is_authenticated and request.user.is_staff %}
-            <div class="card-footer">
-                <a href="{% url 'edit-menu' menu.id %}">Edit Menu</a>
-                {% if menu.status == 'approved' %}
-                <a href="{% url 'hide-menu' menu.id %}">Hide Menu</a>
-                {% elif menu.status == 'hidden' %}
-                <a href="{% url 'hide-menu' menu.id %}">Unhide Menu</a>
-                {% endif %}
-                <a href="{% url 'delete-menu' menu.id %}">Delete Menu</a>
-            </div>
+      <div class="card">
+        <!-- Menu Image -->
+        <div class="menu-container">
+          <img src="{{ menu.menu_image.url }}" class="card-img-top menu-image" alt="Menu Image">
+          <!-- Card Body -->
+          <div class="card-body">
+            <h5 class="card-title">{{ menu.name }}</h5>
+            <p class="card-text">Price: {{ menu.formatted_price }}</p>
+            <button class="btn btn-primary mr-2" data-bs-toggle="modal" data-bs-target="#menuModal"
+              data-menu-name="{{ menu.name }}" data-menu-price="{{ menu.formatted_price }}"
+              data-menu-description="{{ menu.description }}">View Details</button>
+            <!-- User Links -->
+            {% if request.user.is_authenticated %}
+            <span>
+              <a href="{% url 'leave-review' menu.id %}" class="btn btn-secondary btn-sm">Leave a Review</a>
+            </span>
+            {% else %}
+            <span>
+              <a href="{% url 'account_login' %}?next={% url 'leave-review' menu.id %}"
+                class="btn btn-secondary btn-sm">Leave a Review</a>
+            </span>
             {% endif %}
+          </div>
         </div>
+  
+        <!-- Admin Links -->
+        {% if request.user.is_authenticated and request.user.is_staff %}
+        <div class="card-footer">
+          <a href="{% url 'edit-menu' menu.id %}">Edit Menu</a>
+          {% if menu.status == 'approved' %}
+          <a href="{% url 'hide-menu' menu.id %}">Hide Menu</a>
+          {% elif menu.status == 'hidden' %}
+          <a href="{% url 'hide-menu' menu.id %}">Unhide Menu</a>
+          {% endif %}
+          <a href="{% url 'delete-menu' menu.id %}">Delete Menu</a>
+        </div>
+        {% endif %}
+      </div>
     </div>
     {% endfor %}
-</div>
+  </div>
 {% endfor %}
 <!-- Go back to top icon -->
 <a href="#top" class="back-to-top">

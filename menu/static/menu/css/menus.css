@@ -12,7 +12,7 @@
 /* Set the size of the each menu container */
 .menu-container {  
   width: 50%;
-  height: 350px;
+  height: 300px;
   display: flex;
   flex-wrap: wrap;
 }
@@ -25,7 +25,7 @@
 
 /* Set the width and height of menu images */
 .menu-image {  
-  height: 100%;
+  height: 300px;
   object-fit: cover;
 }
 

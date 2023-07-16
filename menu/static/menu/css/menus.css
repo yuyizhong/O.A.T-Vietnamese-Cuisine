@@ -9,20 +9,18 @@
   text-align: center;
   margin-top: 10px; 
 }
+/* Set the size of the each menu container */
+.menu-container {
+  width: 300px;
+  height: 300px;
+  display: flex;
+  flex-wrap: wrap;
+}
 
-.menu-image {
-  width: 100%;
-  height: 200px;
+/* Set the width and height of menu images */
+.menu-image {  
+  height: 100%;
   object-fit: cover;
-}
-
-.modal-body {
-  text-align: center;
-}
-
-.modal-body img {
-  max-width: 100%;
-  height: auto;
 }
 
 /* Menu Modal */
@@ -33,6 +31,7 @@
 }
 
 .modal-body {  
+  text-align: center;
   background-color: #f5e8a5;
 }
 

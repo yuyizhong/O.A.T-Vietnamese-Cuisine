@@ -10,11 +10,17 @@
   margin-top: 10px; 
 }
 /* Set the size of the each menu container */
-.menu-container {
-  width: 300px;
-  height: 300px;
+.menu-container {  
+  width: 50%;
+  height: 350px;
   display: flex;
   flex-wrap: wrap;
+}
+
+@media (max-width: 767.98px) {
+  .menu-container {  
+    width: auto;    
+  }
 }
 
 /* Set the width and height of menu images */
@@ -22,19 +28,7 @@
   height: 100%;
   object-fit: cover;
 }
-.menu-container {
-  position: relative;
-}
 
-.card-body {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(50%);
-  background-color: rgba(255, 255, 255, 0.8);
-  padding: 10px;
-  width: 100%;
-}
 /* Menu Modal */
 
 .modal-header, 

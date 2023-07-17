@@ -13,5 +13,7 @@ class ReviewForm(forms.ModelForm):
             'image', 
             'visit_date',                      
         ]
-
+        widgets = {
+            'visit_date': forms.DateInput(attrs={'type': 'date'}),
+        }
         

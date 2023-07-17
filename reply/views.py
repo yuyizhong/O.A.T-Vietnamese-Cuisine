@@ -3,11 +3,15 @@ from .models import Reply
 from review.models import Review
 from .forms import ReplyForm
 from django.contrib import messages
+from django.core.exceptions import PermissionDenied
 
 def Reply(request, pk):
 
     review = Review.objects.get(id=pk)
     form = ReplyForm()
+    """ Create reply view to reply to reviews if user is staff """
+    if not request.user.is_staff:
+        raise PermissionDenied()
 
     if request.method == 'POST':
         form = ReplyForm(request.POST, request.FILES)

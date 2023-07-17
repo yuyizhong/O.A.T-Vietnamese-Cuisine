@@ -3,6 +3,7 @@ from django.contrib import messages
 from .models import Review
 from menu.models import MenuItem, Category
 from .forms import ReviewForm
+from django.core.exceptions import PermissionDenied
 
 
 def review_list(request):    
@@ -53,7 +54,10 @@ def leave_review(request, pk):
 
     menu = MenuItem.objects.get(id=pk)
     form = ReviewForm()
-
+    """ Create leave-review view to create a review if user is logged in """
+    if not request.user.is_authenticated:
+        raise PermissionDenied()
+        
     if request.method == 'POST':
         form = ReviewForm(request.POST, request.FILES)
         if form.is_valid():

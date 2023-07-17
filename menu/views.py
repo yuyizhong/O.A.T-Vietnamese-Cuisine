@@ -30,9 +30,9 @@ def menu_list(request):
 
 def add_menu(request):
     """ Create menu view to create a menu if user is staff """
-    if not request.user.is_authenticated or not request.user.is_staff:
-        raise PermissionDenied("Error, you are unauthorized to add a menu.")
-        
+    if not request.user.is_staff:
+        raise PermissionDenied()
+
     if request.method == 'POST':
         form = MenuForm(request.POST, request.FILES)
         if form.is_valid():
@@ -52,6 +52,10 @@ def edit_menu(request, menu_item_id):
     item = get_object_or_404(MenuItem, id=menu_item_id)
     form = MenuForm(instance=item)
 
+    """ Edit menu view to edit a menu if user is staff """
+    if not request.user.is_staff:
+        raise PermissionDenied()
+        
     if request.method == 'POST':
         form = MenuForm(request.POST, request.FILES, instance=item)
 

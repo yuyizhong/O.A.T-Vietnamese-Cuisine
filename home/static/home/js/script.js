@@ -12,5 +12,5 @@ document.addEventListener("DOMContentLoaded", function() {
   containerSections[currentSectionIndex].classList.add("active");
 
   // Start the interval to show the next section every 3 seconds
-  setInterval(showNextSection, 3000);
+  setInterval(showNextSection, 1500);
 });

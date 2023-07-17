@@ -1,6 +1,7 @@
 from django.shortcuts import redirect, reverse
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib import messages
+from django.core.exceptions import PermissionDenied
 
 
 from .models import MenuItem, Category  # Add import for Category model
@@ -29,6 +30,9 @@ def menu_list(request):
 
 def add_menu(request):
     """ Create menu view to create a menu if user is staff """
+    if not request.user.is_authenticated or not request.user.is_staff:
+        raise PermissionDenied("Error, you are unauthorized to add a menu.")
+        
     if request.method == 'POST':
         form = MenuForm(request.POST, request.FILES)
         if form.is_valid():

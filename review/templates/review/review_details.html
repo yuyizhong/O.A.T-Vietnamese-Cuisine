@@ -3,7 +3,7 @@
 {% block content %}
 <div class="container text-success">
     <h1>{{ item_reviews.0.menu_item.name }} Reviews</h1>
-    <img src="{{ item_reviews.0.menu_item.menu_image.url }}" alt="{{ item_reviews.0.menu_item.name }}" class="mb-4"
+    <img src="{{ item_reviews.0.menu_item.menu_image.url }}" alt="Look of {{ item_reviews.0.menu_item.name }}" class="mb-4"
         width="200" height="200">
 
     {% for review in item_reviews %}
@@ -24,13 +24,14 @@
                     {% endif %}
                     <p class="card-text"><small class="text-muted">Visited on: {{ review.visit_date }}</small></p>
                     {% if review.reply_set.exists %}
-                    <div class="admin-reply border bg-light p-3">
+                    <div class="admin-reply border p-3 border-secondary border-2 rounded-3">
                         <p class="card-text"><small class="text-muted"><strong>Manager Replies:</strong></small></p>
                         {% for reply in review.reply_set.all %}
                         <p class="card-text"><small class="text-primary">{{ reply.content }}</small></p>
                         {% endfor %}
                     </div>
                     {% endif %}
+                    <br>
                     {% if user.is_staff %}
                     <button class="btn">
                         <a class="btn btn-login" href="{% url 'reply:reply' review.id %}">Reply</a>
@@ -43,7 +44,7 @@
     {% endfor %}
 </div>
 <!-- Go back to top icon -->
-<a href="#top" class="back-to-top">
+<a href="#" class="back-to-top" aria-label="back to top">
     <i class="fa fa-arrow-up"></i>
 </a>
 {% endblock content %}

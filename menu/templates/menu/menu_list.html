@@ -22,13 +22,13 @@
             <div class="row">
                 <!-- Menu Image -->
                 <div class="col-md-8 menu-container">
-                    <img src="{{ menu.menu_image.url }}" class="card-img-top menu-image" alt="Menu Image">
+                    <img src="{{ menu.menu_image.url }}" class="card-img-top menu-image" alt="{{ menu.name }} Food Picture">
                 </div>
                 
                 <!-- Card Body -->
                 <div class="col-md-4">
                     <div class="card-body">
-                        <h5 class="card-title">{{ menu.name }}</h5>                
+                        <h3 class="card-title menu-name font-weight-bold">{{ menu.name }}</h3>                
                         <p class="card-text">Price: {{ menu.formatted_price }}</p>
                         <button class="btn btn-primary mr-2 mb-2" data-bs-toggle="modal" data-bs-target="#menuModal"
                             data-menu-name="{{ menu.name }}" data-menu-price="{{ menu.formatted_price }}"
@@ -36,11 +36,11 @@
                         <!-- User Links -->
                         {% if request.user.is_authenticated %}
                         <span>
-                            <a href="{% url 'leave-review' menu.id %}" class="btn btn-secondary btn-sm">Leave a Review</a>
+                            <a href="{% url 'leave-review' menu.id %}" class="btn btn-secondary mr-2 mb-2">Leave Review</a>
                         </span>  
                         {% else %}
                         <span>
-                            <a href="{% url 'account_login' %}?next={% url 'leave-review' menu.id %}" class="btn btn-secondary btn-sm">Leave a Review</a>
+                            <a href="{% url 'account_login' %}?next={% url 'leave-review' menu.id %}" class="btn btn-secondary btn-sm">Leave Review</a>
                         </span>   
                         {% endif %}
                     </div>
@@ -75,7 +75,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header text-light ">
-                <h5 class="modal-title" id="menuModalTitle"></h5>
+                <h1 class="modal-title" id="menuModalTitle">""</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -88,4 +88,9 @@
         </div>
     </div>
 </div>
+{% endblock %}
+
+{% block javascript %} 
+{{ block.super }}
+<script src="{% static 'menu/js/menus.js' %}"></script>
 {% endblock %}

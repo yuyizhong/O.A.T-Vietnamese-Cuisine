@@ -35,10 +35,7 @@
         integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
         </script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-
-    <script src="{% static 'home/js/script.js' %}"></script>
-    <script src="{% static 'menu/js/menus.js' %}"></script>
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>    
     {% endblock %}   
 </head>
 
@@ -107,6 +104,8 @@
     <footer class="bg-dark text-light text-center py-3 mt-5 mt-5">
         <p>&copy; <span>O.A.T Vietnameses Cuisine</span>. All rights reserved.</p>
     </footer>
+
+    {% block javascript %}
     <script>
         setTimeout(function () {
             let messages = document.getElementById('msg');
@@ -114,7 +113,7 @@
             alert.close();
         }, 2500);
     </script>
-
+    {% endblock %}
     
 </body>
 

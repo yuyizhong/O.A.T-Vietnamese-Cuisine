@@ -19,7 +19,7 @@
             <div class="card">
                 <img class="menu-image" src="{{ menuitem.menu_image.url }}" class="card-img-top" alt="{{ menuitem.name }}">
                 <div class="card-body">
-                    <h5 class="card-title">{{ menuitem.name }}</h5>
+                    <h3 class="card-title menu-name">{{ menuitem.name }}</h3>
                     <div class="rating">
                         
                         {% for menu_name, full_stars in full_stars.items %}
@@ -60,7 +60,7 @@
     {% endfor %}
 </div>
 <!-- Go back to top icon -->
-<a href="#top" class="back-to-top">
+<a href="#" class="back-to-top" aria-label="back to top">
     <i class="fa fa-arrow-up"></i>
 </a>
 {% endblock %}

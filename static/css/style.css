@@ -40,12 +40,12 @@ footer span {
 
 .link:hover,
 .link:active {
-    color: #0977ec;
+    color: #3009ec;
     text-decoration: underline;
 }
 
 .btn-login {
-    background-color: #0977ec;
+    background-color: #3009ec;
     color: #fff;
 }
 

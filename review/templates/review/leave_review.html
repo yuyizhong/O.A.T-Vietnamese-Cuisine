@@ -15,11 +15,11 @@
         <form method="POST" action="{% url 'leave-review' menu_id %}" enctype="multipart/form-data">
             {{ form|crispy }}
             {% csrf_token %}         
-            
+            <br>
             <div>
                 <p>
-                    <button class = "btn-login" type="submit">
-                        Leave Review
+                    <button class = "btn btn-login" type="submit">
+                        Submit
                     </button>
                 </p>
             </div>

@@ -26,6 +26,10 @@ footer {
     border: 5px groove #e5eaf9;
     flex-shrink:0;       
 }
+footer span {
+    color: beige;
+    font-weight: bold;
+}
 
 
 /* Signup/ Sign out page style */
@@ -51,10 +55,6 @@ footer {
     color: #23BBBB;
 }
 
-span {
-    color: blue;
-    font-weight: bold;
-}
 
 .btn-login a {
     color: white;

@@ -50,4 +50,4 @@ class Review(models.Model):
         average_rating = cls.average_rating(menu_item)
         full_stars = cls.full_stars(menu_item)
         decimal_part = average_rating - full_stars
-        return decimal_part > 0
+        return decimal_part > 0.4

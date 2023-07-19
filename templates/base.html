@@ -25,9 +25,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon/favicon-16x16.png' %}">
     <!-- Import css -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link rel="stylesheet" href="{% static 'menu/css/menus.css' %}">
-    <link rel="stylesheet" href="{% static 'contact/css/contacts.css' %}">
-    <link rel="stylesheet" href="{% static 'home/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'menu/css/menus.css' %}"> 
     {% endblock %}
     <!-- Javascript files -->
     {% block postload_js %}
@@ -43,8 +41,8 @@
     <header>
     <!-- Navigation -->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div class="container">
-                <a class="navbar-brand" href="#">O.A.T Vietnames Cuisine</a>
+            <div class="container">                
+                <a class="navbar-brand" href="#"><img src="{% static 'home/images/favicon.ico' %}" aria-label="O.A.T Logo" class="logo">Vietnames Cuisine</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>

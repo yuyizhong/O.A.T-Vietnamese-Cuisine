@@ -67,8 +67,8 @@
   color: blue;
 }
 
-/* For middium screen sizes from 767px to 995px wide up */
-@media (min-width: 767px) and (max-width: 995px) {
+/* For middium screen sizes from 767px to 1200px wide up */
+@media (min-width: 767px) and (max-width: 1200px) {
   .menu-name-container {
     display: none;
   }

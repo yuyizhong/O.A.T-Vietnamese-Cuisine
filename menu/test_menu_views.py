@@ -25,14 +25,14 @@ class MenuAppTests(TestCase):
         response = self.client.get(url)
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'menu/menu_list.html')
-   
+
     def test_add_menu_view(self):
         self.client.force_login(self.user)
         url = reverse('add-menu')
         response = self.client.get(url)
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'menu/add_menu.html')
-    
+
     def test_edit_menu_view(self):
         self.client.force_login(self.user)
         url = reverse('edit-menu', args=[self.menu_item.id])

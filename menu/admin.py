@@ -9,8 +9,7 @@ class MenuAdmin(admin.ModelAdmin):
         'menu_image',
         'name',
         'price',
-        'category',        
-    )
+        'category',)
     list_filter = ('category', 'status')
 
 

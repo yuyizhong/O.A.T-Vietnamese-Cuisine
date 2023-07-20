@@ -55,7 +55,7 @@ def edit_menu(request, menu_item_id):
     """ Edit menu view to edit a menu if user is staff """
     if not request.user.is_staff:
         raise PermissionDenied()
-        
+
     if request.method == 'POST':
         form = MenuForm(request.POST, request.FILES, instance=item)
 

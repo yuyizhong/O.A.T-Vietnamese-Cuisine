@@ -36,5 +36,3 @@ class MenuItem(models.Model):
     @property
     def formatted_price(self):
         return '£{:.2f}'.format(self.price)
-
-

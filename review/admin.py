@@ -14,7 +14,9 @@ class ReviewAdmin(admin.ModelAdmin):
         'image',
         'visit_date'
     )
+    # Filter by rating, user, then created_date
     list_filter = ('rating', 'user', 'created_date')
+    # Search by menu_item__name, user__username and content
     search_fields = ('menu_item__name', 'user__username', 'content')
 
    

@@ -4,6 +4,9 @@ from review.models import Review
 
 
 class ReplyForm(forms.ModelForm):
+    """
+    Form for staff to reply a user's review
+    """
     class Meta:
         model = Reply
         fields = [           

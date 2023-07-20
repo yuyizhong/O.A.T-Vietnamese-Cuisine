@@ -5,6 +5,6 @@ from django.views.generic import TemplateView
 
 class ContactView(TemplateView):
     """
-    View to render homepage
+    View to render contact page
     """
     template_name = 'contact/contact.html'

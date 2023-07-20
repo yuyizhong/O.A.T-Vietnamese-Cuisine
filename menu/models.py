@@ -4,6 +4,7 @@ from cloudinary.models import CloudinaryField
 
 
 class Category(models.Model):
+    """ Model to create Categories """
     name = models.CharField(max_length=25)
 
     def __str__(self):
@@ -11,7 +12,9 @@ class Category(models.Model):
 
 
 class MenuItem(models.Model):
-    # Choice fields
+    """ Model to create Menu """    
+
+    """ Choice fields """
     STATUS_CHOICES = (
         ('draft', 'Draft'),
         ('approved', 'Approved'),
@@ -27,12 +30,13 @@ class MenuItem(models.Model):
     category = models.ForeignKey(Category, null=True, on_delete=models.CASCADE)
 
     class Meta:
-        """ Order by type and name """
+        """ Order by menu category and name """
         ordering = ['category', 'name']
 
     def __str__(self):
         return self.name
 
-    @property
+    # price decoration
+    @property        
     def formatted_price(self):
         return '£{:.2f}'.format(self.price)

@@ -5,6 +5,10 @@ from math import floor
 
 
 class Review(models.Model):
+    """
+    Model to create reviews on particular menu dish
+    """
+    # Rating choice fields
     RATING_CHOICES = (
         (0, '0 - Very Poor'),
         (1, '1 - Poor'),
@@ -30,8 +34,11 @@ class Review(models.Model):
     def __str__(self):
         return f"Review for {self.menu_item.name} by {self.user.username}"
 
-    @classmethod
+    @classmethod   
     def average_rating(cls, menu_item):
+        """
+        Function to caculate the average rating to a specific menu
+        """
         reviews = cls.objects.filter(menu_item=menu_item)
         if reviews.exists():
             total_rating = sum(review.rating for review in reviews)
@@ -41,12 +48,23 @@ class Review(models.Model):
 
     @classmethod
     def full_stars(cls, menu_item):
+        """
+        Function to display the number of full stars
+        """
         average_rating = cls.average_rating(menu_item)
         return floor(average_rating)
 
     
     @classmethod
     def half_stars(cls, menu_item):
+        """ Determine if a half star should be displayed based on the average rating of a menu item.
+
+        Parameters:
+            menu_item (MenuItem): The menu item to check.
+
+        Returns:
+            bool: True if a half star should be displayed, False otherwise.
+        """
         average_rating = cls.average_rating(menu_item)
         full_stars = cls.full_stars(menu_item)
         decimal_part = average_rating - full_stars

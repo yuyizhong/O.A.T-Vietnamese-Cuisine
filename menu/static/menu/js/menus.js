@@ -1,3 +1,4 @@
+// Js to display menu details as a modal when required
 document.addEventListener('DOMContentLoaded', function() {
     var menuModal = document.getElementById('menuModal');
     var menuModalTitle = document.getElementById('menuModalTitle');

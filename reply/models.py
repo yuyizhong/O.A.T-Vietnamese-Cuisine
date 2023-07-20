@@ -4,6 +4,7 @@ from django.utils import timezone
 from review.models import Review
 
 class Reply(models.Model):
+    """ Model to reply to review on menu """
     review = models.ForeignKey(Review, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     content = models.TextField()

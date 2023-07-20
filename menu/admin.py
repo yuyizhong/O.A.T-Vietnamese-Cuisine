@@ -10,7 +10,7 @@ class MenuAdmin(admin.ModelAdmin):
         'name',
         'price',
         'category',)
+    # Filter by category and status
     list_filter = ('category', 'status')
-
 
 admin.site.register(Category)

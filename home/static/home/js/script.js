@@ -1,3 +1,4 @@
+// Rotation of the hero images at a disrired speed
 document.addEventListener("DOMContentLoaded", function() {
   const containerSections = document.querySelectorAll(".container-section");
   let currentSectionIndex = 0;
@@ -11,6 +12,6 @@ document.addEventListener("DOMContentLoaded", function() {
   // Show the first section initially
   containerSections[currentSectionIndex].classList.add("active");
 
-  // Start the interval to show the next section every 3 seconds
+  // Start the interval to show the next section every 1.5 seconds
   setInterval(showNextSection, 1500);
 });

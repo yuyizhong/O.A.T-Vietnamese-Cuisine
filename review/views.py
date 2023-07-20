@@ -6,9 +6,11 @@ from .forms import ReviewForm
 from django.core.exceptions import PermissionDenied
 
 
-def review_list(request):    
-    menuitems = MenuItem.objects.all()
-    
+def review_list(request): 
+    """
+    View to render reviews with their average rating
+    """   
+    menuitems = MenuItem.objects.all()    
 
     avg ={}
     full_stars = {}
@@ -37,6 +39,10 @@ def review_list(request):
     
 
 def item_reviews(request, menu_id):
+    """
+    View to render detailed reviews and ratings 
+    from each user to a particular dish
+    """   
     
     item = MenuItem.objects.get(id = menu_id)
    
@@ -51,10 +57,13 @@ def item_reviews(request, menu_id):
     return render(request, 'review/review_details.html', context)
 
 def leave_review(request, pk):
-
+    """
+    View to render a review form for logined user to leave review
+    on a particular dish
+    """ 
     menu = MenuItem.objects.get(id=pk)
     form = ReviewForm()
-    """ Create leave-review view to create a review if user is logged in """
+    # nun-login access lead to 403 page
     if not request.user.is_authenticated:
         raise PermissionDenied()
         

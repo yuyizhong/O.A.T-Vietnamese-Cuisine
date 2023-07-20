@@ -1,4 +1,4 @@
-/* Menus Pages */
+/* Menus items */
 .menu-name {
   font-size: px;
 }
@@ -52,13 +52,13 @@
 
 /* Menu Forms  */
 .menu-form {
-  background-color: #d0d4d4; /* Cream background color */
+  background-color: #d0d4d4;
 }
 .menu-form label {
-  font-weight: bold; /* Bold labels */
+  font-weight: bold; 
 }
 
-/* bank to top icon */
+/* Bank to top icon */
 .back-to-top {
   position: fixed;
   bottom: 65px;

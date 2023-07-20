@@ -6,10 +6,10 @@ from django.contrib import messages
 from django.core.exceptions import PermissionDenied
 
 def Reply(request, pk):
-
+    """ Model for staff to reply to user reviews on menu """
     review = Review.objects.get(id=pk)
     form = ReplyForm()
-    """ Create reply view to reply to reviews if user is staff """
+    # nun-staff access lead to 403 page
     if not request.user.is_staff:
         raise PermissionDenied()
 

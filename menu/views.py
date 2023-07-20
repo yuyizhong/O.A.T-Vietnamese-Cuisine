@@ -3,18 +3,20 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib import messages
 from django.core.exceptions import PermissionDenied
 
-
-from .models import MenuItem, Category  # Add import for Category model
+from .models import MenuItem, Category  
 from .forms import MenuForm
 
 
 def menu_list(request):
+    """
+    View to render approved menu items by category
+    """
     if request.user.is_superuser:  # Check if user is an admin
         menu_items = MenuItem.objects.all()
     else:
         menu_items = MenuItem.objects.filter(status='approved')
-
-    menu_items_by_category = {}  # Dictionary to store menu items by category
+    # Dictionary to store menu items by category
+    menu_items_by_category = {}  
 
     # Retrieve all menu items and group them by category
     categories = Category.objects.all()
@@ -29,7 +31,11 @@ def menu_list(request):
 
 
 def add_menu(request):
-    """ Create menu view to create a menu if user is staff """
+    """ 
+    View to add a new dish if user is staff     
+    """
+    
+    # nun-staff access lead to 403 page
     if not request.user.is_staff:
         raise PermissionDenied()
 
@@ -49,10 +55,13 @@ def add_menu(request):
 
 
 def edit_menu(request, menu_item_id):
+    """ 
+    View to edit a dish if user is staff     
+    """
     item = get_object_or_404(MenuItem, id=menu_item_id)
-    form = MenuForm(instance=item)
-
-    """ Edit menu view to edit a menu if user is staff """
+    form = MenuForm(instance=item)   
+    
+    # nun-staff access lead to 403 page
     if not request.user.is_staff:
         raise PermissionDenied()
 
@@ -72,6 +81,9 @@ def edit_menu(request, menu_item_id):
 
 
 def hide_menu(request, menu_item_id):
+    """ 
+    View to hide/unhide a dish if user is staff     
+    """
     menu_item = get_object_or_404(MenuItem, id=menu_item_id)
     if menu_item.status == 'approved':
         menu_item.status = 'hidden'
@@ -86,6 +98,9 @@ def hide_menu(request, menu_item_id):
 
 
 def delete_menu(request, menu_item_id):
+    """ 
+    View to delete a dish if user is staff     
+    """
     menu_item = get_object_or_404(MenuItem, id=menu_item_id)
     menu_item.delete()
     # flash message

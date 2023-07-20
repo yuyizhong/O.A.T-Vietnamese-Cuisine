@@ -20,8 +20,7 @@
                 <img class="menu-image" src="{{ menuitem.menu_image.url }}" class="card-img-top" alt="{{ menuitem.name }}">
                 <div class="card-body">
                     <h3 class="card-title menu-name">{{ menuitem.name }}</h3>
-                    <div class="rating">
-                        
+                    <div class="rating">                        
                         {% for menu_name, full_stars in full_stars.items %}
                             {% if menu_name == menuitem.name %}
                                 {% if full_stars %}

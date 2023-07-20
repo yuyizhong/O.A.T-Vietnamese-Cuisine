@@ -31,7 +31,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', '')
 DEBUG = 'DEVELOPMENT' in os.environ
 
 ALLOWED_HOSTS = [
-    '8000-yuyizhong-oatvietnamese-94a23rskak1.ws-eu101.gitpod.io',
+    '8000-yuyizhong-oatvietnamese-94a23rskak1.ws-eu102.gitpod.io',
     'oat-vietnamese-cuisine-91aa08c21232.herokuapp.com',
     'localhost',
 ]
@@ -113,7 +113,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'OAT.wsgi.application'
 
-
+# Database
+# https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 if 'DATABASE_URL' in os.environ:
     DATABASES = {
         'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))

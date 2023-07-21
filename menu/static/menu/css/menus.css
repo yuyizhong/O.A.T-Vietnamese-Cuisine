@@ -13,8 +13,7 @@
   margin-top: 10px; 
 }
 /* Set the size of the each menu container */
-.menu-container {  
-  width: 50%;
+.menu-container { 
   height: 300px;
   display: flex;
   flex-wrap: wrap;
@@ -27,8 +26,7 @@
 }
 
 /* Set the width and height of menu images */
-.menu-image {  
-  width: 100%;
+.menu-image {
   height: 300px;
   object-fit: cover;
 }

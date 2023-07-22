@@ -20,7 +20,7 @@
                     </p>
                     <p class="card-text text-Excepturi">{{ review.content }}</p>
                     {% if review.image %}
-                    <img class="menu-image" src="{{ review.image.url }}" alt="Review Image" class="img-fluid mb-2">
+                    <img src="{{ review.image.url }}" alt="Review Image" class="img-fluid mb-2 menu-image">
                     {% endif %}
                     <p class="card-text"><small class="text-muted">Visited on: {{ review.visit_date }}</small></p>
                     {% if review.reply_set.exists %}
@@ -32,10 +32,8 @@
                     </div>
                     {% endif %}
                     <br>
-                    {% if user.is_staff %}
-                    <button class="btn">
-                        <a class="btn btn-login" href="{% url 'reply:reply' review.id %}">Reply</a>
-                    </button>
+                    {% if user.is_staff %}                    
+                        <a class="btn btn-login" href="{% url 'reply:reply' review.id %}">Reply</a>                    
                     {% endif %}
                 </div>
             </div>

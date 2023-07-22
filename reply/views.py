@@ -5,6 +5,7 @@ from .forms import ReplyForm
 from django.contrib import messages
 from django.core.exceptions import PermissionDenied
 
+
 def Reply(request, pk):
     """ Model for staff to reply to user reviews on menu """
     review = Review.objects.get(id=pk)
@@ -17,11 +18,12 @@ def Reply(request, pk):
         form = ReplyForm(request.POST, request.FILES)
         if form.is_valid():
             reply = form.save(commit=False)
-            reply.user = request.user          
+            reply.user = request.user
             reply.review = review
             reply.save()
             # flash message
-            messages.success(request, 'Your successfully replied to the review!')
+            messages.success(
+                request, 'Your successfully replied to the review!')
         return redirect('item-reviews', menu_id=review.menu_item.id)
 
     context = {

@@ -3,7 +3,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib import messages
 from django.core.exceptions import PermissionDenied
 
-from .models import MenuItem, Category  
+from .models import MenuItem, Category
 from .forms import MenuForm
 
 
@@ -16,7 +16,7 @@ def menu_list(request):
     else:
         menu_items = MenuItem.objects.filter(status='approved')
     # Dictionary to store menu items by category
-    menu_items_by_category = {}  
+    menu_items_by_category = {}
 
     # Retrieve all menu items and group them by category
     categories = Category.objects.all()
@@ -31,10 +31,10 @@ def menu_list(request):
 
 
 def add_menu(request):
-    """ 
-    View to add a new dish if user is staff     
     """
-    
+    View to add a new dish if user is staff
+    """
+
     # nun-staff access lead to 403 page
     if not request.user.is_staff:
         raise PermissionDenied()
@@ -55,12 +55,12 @@ def add_menu(request):
 
 
 def edit_menu(request, menu_item_id):
-    """ 
-    View to edit a dish if user is staff     
+    """
+    View to edit a dish if user is staff
     """
     item = get_object_or_404(MenuItem, id=menu_item_id)
-    form = MenuForm(instance=item)   
-    
+    form = MenuForm(instance=item)
+
     # nun-staff access lead to 403 page
     if not request.user.is_staff:
         raise PermissionDenied()
@@ -81,8 +81,8 @@ def edit_menu(request, menu_item_id):
 
 
 def hide_menu(request, menu_item_id):
-    """ 
-    View to hide/unhide a dish if user is staff     
+    """
+    View to hide/unhide a dish if user is staff
     """
     menu_item = get_object_or_404(MenuItem, id=menu_item_id)
     if menu_item.status == 'approved':
@@ -98,8 +98,8 @@ def hide_menu(request, menu_item_id):
 
 
 def delete_menu(request, menu_item_id):
-    """ 
-    View to delete a dish if user is staff     
+    """
+    View to delete a dish if user is staff
     """
     menu_item = get_object_or_404(MenuItem, id=menu_item_id)
     menu_item.delete()

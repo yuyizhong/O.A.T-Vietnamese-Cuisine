@@ -25,7 +25,6 @@ class Review(models.Model):
     content = models.TextField()
     image = CloudinaryField('image', default=None, blank=True, null=True)
     visit_date = models.DateField()
-   
 
     class Meta:
         """ Order by time of creation """
@@ -34,7 +33,7 @@ class Review(models.Model):
     def __str__(self):
         return f"Review for {self.menu_item.name} by {self.user.username}"
 
-    @classmethod   
+    @classmethod
     def average_rating(cls, menu_item):
         """
         Function to caculate the average rating to a specific menu
@@ -54,10 +53,10 @@ class Review(models.Model):
         average_rating = cls.average_rating(menu_item)
         return floor(average_rating)
 
-    
     @classmethod
     def half_stars(cls, menu_item):
-        """ Determine if a half star should be displayed based on the average rating of a menu item.
+        """ Determine if a half star should be displayed
+        based on the average rating of a menu item.
 
         Parameters:
             menu_item (MenuItem): The menu item to check.

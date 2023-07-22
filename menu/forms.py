@@ -2,8 +2,9 @@ from django import forms
 
 from .models import MenuItem
 
-# Form to add and edit menu contents
+
 class MenuForm(forms.ModelForm):
+    """Form to add and edit menu contents"""
     class Meta:
         model = MenuItem
         fields = [

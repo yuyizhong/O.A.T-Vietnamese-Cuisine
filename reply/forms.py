@@ -9,8 +9,8 @@ class ReplyForm(forms.ModelForm):
     """
     class Meta:
         model = Reply
-        fields = [           
+        fields = [
             'user',
             'content',
-            'created_at',                      
+            'created_at',
         ]

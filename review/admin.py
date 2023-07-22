@@ -18,5 +18,3 @@ class ReviewAdmin(admin.ModelAdmin):
     list_filter = ('rating', 'user', 'created_date')
     # Search by menu_item__name, user__username and content
     search_fields = ('menu_item__name', 'user__username', 'content')
-
-   

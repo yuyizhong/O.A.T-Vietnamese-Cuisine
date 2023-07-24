@@ -14,19 +14,19 @@ The live link can be found here: [Live Site - O.A.T Vietnamese Cuisine ](https:/
     - [Agile Planning](#agile-planning)
       - [Epics](#epics)
       - [User Stories](#user-stories)
-  - [The-Scope-Plan](#the-scope-plan)
-  - [The-Structure-Plan](#the-structure-plan)
-    - [Features](#features)
-    - [Features Left To Implement](#features-left-to-implement)
-  - [The-Skeleton-Plan](#the-skeleton-plan)
-    - [Wireframes](#wireframes)
-    - [Database-Design](#database-design)
-    - [Security](#security)
-  - [The-Surface-Plan](#the-surface-plan)
-    - [Design](#design)
-    - [Colour-Scheme](#colour-scheme)
-    - [Typography](#typography)
-    - [Imagery](#imagery)
+- [The-Scope-Plan](#the-scope-plan)
+- [The-Structure-Plan](#the-structure-plan)
+  - [Features](#features)
+  - [Features Left To Implement](#features-left-to-implement)
+- [The-Skeleton-Plan](#the-skeleton-plan)
+  - [Wireframes](#wireframes)
+  - [Database-Design](#database-design)
+  - [Security](#security)
+- [The-Surface-Plan](#the-surface-plan)
+  - [Design](#design)
+  - [Colour-Scheme](#colour-scheme)
+  - [Typography](#typography)
+  - [Imagery](#imagery)
 - [Technolgies](#technolgies)
 - [Testing](#testing)
 - [Deployment](#deployment)
@@ -165,5 +165,12 @@ Tasks:
 * Complete readme documentation
 * Complete testing documentation
 
+## The-Scope-Plane
+
+* Responsive Design - Site should be fully functional on all devices from 320px wide up.
+* Ability to perform CRUD functionality on Menus, create and read functions on reviews and replies.
+* Restricted role based features with allauth accounts setting up
+* Home page with hero images implying the name of the restaurant and their believe
+* Contact page with contact, opening and location information
 
 

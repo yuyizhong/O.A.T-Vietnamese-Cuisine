@@ -38,7 +38,7 @@ The live link can be found here: [Live Site - O.A.T Vietnamese Cuisine ](https:/
 
 # User-Experience-Design
 
-## The-Strategy-Plane
+## The-Strategy-Plan
 
 ### Site-Goals
 The site is aimed for restaurant staff to easily manage the daily menus on the website, keep track of the costomers' feedbacks to monitor the quality of the food and reply to each review for better customer care pratice. 
@@ -165,7 +165,7 @@ Tasks:
 * Complete readme documentation
 * Complete testing documentation
 
-## The-Scope-Plane
+## The-Scope-Plan
 
 * Responsive Design - Site should be fully functional on all devices from 320px wide up.
 * Ability to perform CRUD functionality on Menus, create and read functions on reviews and replies.
@@ -173,4 +173,69 @@ Tasks:
 * Home page with hero images implying the name of the restaurant and their believe
 * Contact page with contact, opening and location information
 
+## The-Structure-Plan
+
+### Features
+
+**Home Page**
+
+``USER STORY - As a restaurant owner, I can have a home page so that It can best represent the business and allow customers to navigate from there.
+
+*1. Navigation Menu*
+
+``USER STORY - As a developer, I can have the navbar so that users can navigate the website from any device``
+
+Implementation:
+
+
+ The Navigation contains links for Home, Menu, Reviews, Register, Login and Contact.
+  * Home -> index.html - Visible to all
+  * Menu -> menu_list.html
+* View Menus -> menu_list.html - Visible to all
+	* View Details -> menu modal - Visible to all
+    	* Add Menu -> add_menu.html - Visible to staff
+	* Edit Menu -> edit_menu.html - Visible to staff
+	* Hide and Delete Menu -> links - Visible to staff
+	* Leave Review -> leave_review.html - Button Visible to all but page accessible by logged in users only; Unlogged in users will be directed to login -> login.html
+
+  * Reviews -> reviews.html
+    * View Reviews & Average Ratings -> reviews.html - Visible to all
+	* View Details & Rating -> review_details.html - Visible to all
+		*Reply -> reply.html –Visible to staff
+    
+  * Login -> login.html - Visible to logged out users
+  * Register -> signup.html - Visible to logged out users
+  * Logout -> logout.html - Visible to logged in users
+  * Contact -> contact.html - Visible to all 
+
+The navigation menu is displayed on all pages and collapsed into a hamburger menu on smaller devices. This will allow users to view the site from any device.
+
+![Navbar](docs/readme_images/navbar.jpg)
+![Navbar1](docs/readme_images/navbarm.jpg)
+
+*2. Hero Images*
+
+``USER STORY - As a restaurant owner, I would like hero images at home page so that it can deliver the business concept and purpose to site users``
+
+Implementation:
+
+The home page contains rotating hero images which representing their individual messages of “Original Ingredients”, “Authentic Recipe” and “Traditional Method”. The first letter of each phrase is highlighted in purple, which forms the restaurant name ‘O.A.T’. This will immediately make it evident to the user, what the purpose and believe of the website is.
+
+![Hero Image1](docs/readme_images/hero1.jpg)
+
+![Hero Image2](docs/readme_images/hero2.jpg)
+
+![Hero Image3](docs/readme_images/hero3.jpg)
+
+*3.Footer*
+
+``USER STORY - As a developer, I can create the footer with company copyright information``
+
+
+Implementation:
+
+
+A footer has been added to the bottom of the site, this contains copyright information.
+
+![Footer](docs/readme_images/footer.jpg)
 

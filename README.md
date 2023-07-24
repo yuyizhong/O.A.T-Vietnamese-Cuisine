@@ -191,17 +191,18 @@ Implementation:
  The Navigation contains links for Home, Menu, Reviews, Register, Login and Contact.
   * Home -> index.html - Visible to all
   * Menu -> menu_list.html
-* View Menus -> menu_list.html - Visible to all
-	* View Details -> menu modal - Visible to all
-    	* Add Menu -> add_menu.html - Visible to staff
-	* Edit Menu -> edit_menu.html - Visible to staff
-	* Hide and Delete Menu -> links - Visible to staff
-	* Leave Review -> leave_review.html - Button Visible to all but page accessible by logged in users only; Unlogged in users will be directed to login -> login.html
+  * View Menus -> menu_list.html - Visible to all
+    * View Details -> menu modal - Visible to all
+    * Add Menu -> add_menu.html - Visible to staff
+    * Edit Menu -> edit_menu.html - Visible to staff
+    * Hide and Delete Menu -> links - Visible to staff
+    * Leave Review -> leave_review.html - Button Visible to all but page accessible by logged in users only; Unlogged in users will be directed to login -> login.html
 
   * Reviews -> reviews.html
     * View Reviews & Average Ratings -> reviews.html - Visible to all
-	* View Details & Rating -> review_details.html - Visible to all
-		*Reply -> reply.html –Visible to staff
+	    * View Details & Rating -> review_details.html -   
+        Visible to all
+		   * Reply -> reply.html – Visible to staff
     
   * Login -> login.html - Visible to logged out users
   * Register -> signup.html - Visible to logged out users
@@ -219,7 +220,12 @@ The navigation menu is displayed on all pages and collapsed into a hamburger men
 
 Implementation:
 
-The home page contains rotating hero images which representing their individual messages of “Original Ingredients”, “Authentic Recipe” and “Traditional Method”. The first letter of each phrase is highlighted in purple, which forms the restaurant name ‘O.A.T’. This will immediately make it evident to the user, what the purpose and believe of the website is.
+The home page contains rotating hero images which representing their individual messages:
+- “Original Ingredients”
+- “Authentic Recipe”
+- “Traditional Method”. 
+
+The first letter of each phrase is highlighted in purple, which forms the restaurant name ``O.A.T``. This immediately make it evident to the user, what the purpose and believe of the website is.
 
 ![Hero Image1](docs/readme_images/hero1.jpg)
 

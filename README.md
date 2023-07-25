@@ -252,7 +252,9 @@ A footer has been added to the bottom of the site, this contains copyright infor
 Implementation:
 
 A menu page has been implemented to allow users to see the current active menus and decide whether they are interested in the food offered. This is visible to all users regardless of logged in status. There is a ``view Details`` button next to each menu to access the menu modal for ingredients and allergies information. 
+
 ![View Menus1](docs/readme_images/daily-menu-all.jpg)
+
 ![View Menus2](docs/readme_images/menu-modal.jpg)
 
 **Add Menu Page**
@@ -266,13 +268,18 @@ Implementation:
 
 -	An add menu page was implemented to allow staff users to add new menus via the UI without having to use the backend admin panel. 
 -	``Add Menu`` link underneath the Daily Menu title is visible after staff logged in. This direct staff to ``Add Menu`` form to add a dish.
+
 ![Add Menu Link](docs/readme_images/add-menu-link.jpg)
 -	At the add menu form, the Menu status is default as ``Draft``. Only after staff manually change it to ``Approved``, the added menu can appear at the Menu List page.
+
 ![Add Menu Page](docs/readme_images/add-menu.jpg)
+
 ![Add Menu Status](docs/readme_images/add-menu-status.jpg)
 -	A flash message appears after a menu is added.
+
 ![Add Menu Message](docs/readme_images/add-menu-message.jpg)
 -	If nun-staff try to access add-menu page through its URL address, they will be directed to a customized 403 page.
+
 ![Add Menu Forbidden](docs/readme_images/add-menu-403.jpg)
 
 
@@ -285,11 +292,15 @@ Implementation:
 
 -	An edit menu page was implemented to allow staff users to edit existing menus via the UI without having to use the backend admin panel. 
 -	``Edit Menu`` link underneath each menu image is visible after staff logged in. This direct staff to ``Edit Menu`` form to edit a dish.
+
 ![Edit Menu Link](docs/readme_images/edit-menu-link.jpg)
 -	A flash message appears after a menu is added.
+
 ![Add Menu Page](docs/readme_images/edit-menu.jpg)
+
 ![Add Menu Message](docs/readme_images/edit-message.jpg)
 -	If nun-staff try to access edit-menu page through its URL address, they will be directed to a customized 403 page.
+
 ![Add Menu Forbidden](docs/readme_images/add-menu-403.jpg)
 
 
@@ -325,10 +336,13 @@ Implementation:
 Implementation:
 
 -	After navigating through navbar menu to ``Reviews``, users can view each menu item with total number og reviews and a average rating score displayed in yellow stars if users reviewed it. 
+
 ![Reviews Page](docs/readme_images/reviews.jpg)
 -	A review details page can be accessed at reviews page by clicking on the review ‘number’ under the menu image. 
+
 ![Reviews Details Page Link](docs/readme_images/review-num.jpg)
 -	It will direct all the users to the detailed reviews and ratings page for a particular dish from the menu list.
+
 ![Reviews Details](docs/readme_images/review-details.jpg)
 
 
@@ -344,10 +358,13 @@ Implementation:
 
 -	At menu page there is a grey button ``Leave Review`` next to each menu. 
 -	By clicking on it, logged in users will be directed to a ``Leave Review`` page where they can leave comments and rating.
+
 ![Create Review](docs/readme_images/leave-review.jpg) 
 -	Un-logged in users will be directed to ``Login`` page. After login, users will then be directed back to the ``Leave Review`` page for the particular item they chose earlier.
+
 ![Create Review after Login](docs/readme_images/leave-review-after-signin.jpg)
 -	A flash message appears after a review is submitted.
+
 ![Create Review Message](docs/readme_images/leave-review-message.jpg)
 
 
@@ -361,8 +378,10 @@ Implementation:
 
 -	A reply page was implemented with a form that allows staff users to reply to reviews left by customers through the UI. 
 -	After staff logged in, a ``Reply`` button became visible and redirect the staff user to reply page.
+
 ![Reply Page](docs/readme_images/reply-form.jpg)
 -	A flash message appears after a reply is submitted.
+
 ![Reply and Message](docs/readme_images/reply-and-message.jpg)
 -	If nun-staff try to access reply page through its URL address, they will be directed to a customized 403 page.
 
@@ -468,3 +487,93 @@ Implementation:
 - From there, user can view their own reviews, saved dishes which they liked.
 - User can also book a table, view and manage their bookings from there. 
 
+## The-Skeleton-Plan
+
+### Wireframes
+
+- **Home page**
+
+![Home Page](docs/wireframes/home-desktop.jpg)
+
+![Home Page](docs/wireframes/home-mobile.jpg)
+
+
+- **Menu page**
+
+![Menu Page](docs/wireframes/menu-desktop.jpg)
+
+![Menu Page](docs/wireframes/menu-mobile.jpg)
+
+- **Reviews page**
+
+![Reviews Page](docs/wireframes/reviews-desktop.jpg)
+
+![Reviews Page](docs/wireframes/reviews-mobile.jpg)
+
+
+- **Review Details page**
+
+![Reviews Details Page](docs/wireframes/item-review-desktop.jpg)
+
+![Reviews Details Page](docs/wireframes/item-review-mobile.jpg)
+
+
+- **Contact page**
+
+![Contact Page](docs/wireframes/contact-desktop.jpg)
+
+![Contact Page](docs/wireframes/contact-mobile.jpg)
+
+- **Register**
+
+![Register Page](docs/wireframes/signup-desktop.jpg)
+
+![Register Page](docs/wireframes/signup-mobile.jpg)
+
+
+- **Log in**
+
+![Login Page](docs/wireframes/login-desktop.jpg)
+
+![Login Page](docs/wireframes/login-mobile.jpg) 
+
+- **Create Menu**
+
+![Create Menu](docs/wireframes/add-menu-desktop.jpg)
+
+![Create Menu](docs/wireframes/add-menu-mobile.jpg)
+
+
+- **Edit Menu**
+
+![Edit Menu](docs/wireframes/edit-menu-desktop.jpg)
+
+![Edit Menu](docs/wireframes/edit-menu-mobile.jpg)
+
+- **Create Review**
+
+![Create Review](docs/wireframes/leave-review-desktop.jpg)
+
+![Create Review](docs/wireframes/leave-review-mobile.jpg)
+
+- **Create Reply** 
+
+![Create Reply](docs/wireframes/reply-desktop.jpg)
+
+![Create Reply](docs/wireframes/reply-mobile.jpg)
+
+**Differences to Design**
+
+The layout of the menu contents was different. It originally designed as the menu image on the top and the other menu contents and 2 buttons under the images. As the images taking unnecessary space and looking ood at a large screen, I changed the layout to having the image take 60% on the left and the other contents and 2 buttons on the right side.  
+
+### Database-Design
+
+The database was designed to allow CRUD functionality to be available to registered users, when signed in. The MenuItem model is at the heart of the application as it is connected the the Review, linked by primary/foreign key relationships.
+
+The MenuItems model holds objects that are linked to the Menu Models by a many to many relationship. This allows for staff to create menus with many menu items on.
+
+Reply is related to Review by a Foreign Key which allows the manager to reply to individual review of a particular menu item id.
+
+Entity relationship diagram was created using [Dbeaver](https://dbeaver.io/) and shows the schemas for each of the models and how they are related.
+
+![Entity Relationship Diagram](docs/readme_images/erd.jpg)

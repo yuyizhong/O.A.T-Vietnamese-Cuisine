@@ -245,3 +245,226 @@ A footer has been added to the bottom of the site, this contains copyright infor
 
 ![Footer](docs/readme_images/footer.jpg)
 
+**View Menu Page**
+
+``As a user, I can view menu list so that I can decide if I would like to dine at the restaurant``
+
+Implementation:
+
+A menu page has been implemented to allow users to see the current active menus and decide whether they are interested in the food offered. This is visible to all users regardless of logged in status. There is a ``view Details`` button next to each menu to access the menu modal for ingredients and allergies information. 
+![View Menus1](docs/readme_images/daily-menu-all.jpg)
+![View Menus2](docs/readme_images/menu-modal.jpg)
+
+**Add Menu Page**
+
+*User Story*
+- ``As a staff user, I can add a new menu when we have new dishes to offer``
+- ``As a staff user, I can create draft of a potential new menu so that I can display it to users later when it is confirmed``
+- ``As a staff user, I can receive messages when I manage menus so that I can know the actions are conducted successfully``
+
+Implementation:
+
+-	An add menu page was implemented to allow staff users to add new menus via the UI without having to use the backend admin panel. 
+-	``Add Menu`` link underneath the Daily Menu title is visible after staff logged in. This direct staff to ``Add Menu`` form to add a dish.
+![Add Menu Link](docs/readme_images/add-menu-link.jpg)
+-	At the add menu form, the Menu status is default as ``Draft``. Only after staff manually change it to ``Approved``, the added menu can appear at the Menu List page.
+![Add Menu Page](docs/readme_images/add-menu.jpg)
+![Add Menu Status](docs/readme_images/add-menu-status.jpg)
+-	A flash message appears after a menu is added.
+![Add Menu Message](docs/readme_images/add-menu-message.jpg)
+-	If nun-staff try to access add-menu page through its URL address, they will be directed to a customized 403 page.
+![Add Menu Forbidden](docs/readme_images/add-menu-403.jpg)
+
+
+**Edit Menu Page**
+
+*User Story*
+- ``As a staff user, I can edit a menu when updates are required``
+
+Implementation:
+
+-	An edit menu page was implemented to allow staff users to edit existing menus via the UI without having to use the backend admin panel. 
+-	``Edit Menu`` link underneath each menu image is visible after staff logged in. This direct staff to ``Edit Menu`` form to edit a dish.
+![Edit Menu Link](docs/readme_images/edit-menu-link.jpg)
+-	A flash message appears after a menu is added.
+![Add Menu Page](docs/readme_images/edit-menu.jpg)
+![Add Menu Message](docs/readme_images/edit-message.jpg)
+-	If nun-staff try to access edit-menu page through its URL address, they will be directed to a customized 403 page.
+![Add Menu Forbidden](docs/readme_images/add-menu-403.jpg)
+
+
+**Other Menu Manage Features Hide & Delete**
+
+*User Story*
+- ``As a staff user, I can toggle/hide a menu when it’s temperately not available for a particular day because shortage of the ingredients``
+- ``As a staff user, I can delete a menu when it is not ordered for a reasonable period of time``
+
+Implementation:
+
+-	The hide and delete features have been implemented at menu page next to `Edit`.
+-	By clicking on ``Hide``, this particular menu will be temperately removed off the list. And Hide become ``Unhide``. The same way to unhide a menu when requires, and the text changes to ``Hide``.
+-	By clicking on ``Delete``, this particular menu will be permanently removed off the list.
+-	A confirmation message will appear after the actions are performed successfully.
+
+![Menu Manage Links](docs/readme_images/hide.jpg)
+![Hide Message](docs/readme_images/hide-message.jpg)
+![Unhide Links](docs/readme_images/unhide.jpg)
+![Unhide Message](docs/readme_images/unhidden-message.jpg)
+![Delete Message](docs/readme_images/delete-message.jpg)
+
+
+
+**View Reviews Page**
+**View Review Detail Page**
+
+*User Story*
+- ``As a user, I can view other’s feedbacks and ratings to menus so that I can decide what to order and what to avoid``
+
+- ``As a site owner, I can view the feedbacks and ratings of my menu list so that I can know how well the menus work to customers``
+
+Implementation:
+
+-	After navigating through navbar menu to ``Reviews``, users can view each menu item with total number og reviews and a average rating score displayed in yellow stars if users reviewed it. 
+![Reviews Page](docs/readme_images/reviews.jpg)
+-	A review details page can be accessed at reviews page by clicking on the review ‘number’ under the menu image. 
+![Reviews Details Page Link](docs/readme_images/review-num.jpg)
+-	It will direct all the users to the detailed reviews and ratings page for a particular dish from the menu list.
+![Reviews Details](docs/readme_images/review-details.jpg)
+
+
+**Create Review and Rating Page**
+
+*User Story*
+- ``As a user, I can leave comments on dishes so that I can share my experience with others/give improvement suggestions to restaurant owner``
+- ``As a user, I can give a rating to a dish so that I can express how much I like/dislike it``
+- ``As a user, I can receive messages when I submit a review so I know it was completed successfully``
+
+
+Implementation:
+
+-	At menu page there is a grey button ``Leave Review`` next to each menu. 
+-	By clicking on it, logged in users will be directed to a ``Leave Review`` page where they can leave comments and rating.
+![Create Review](docs/readme_images/leave-review.jpg) 
+-	Un-logged in users will be directed to ``Login`` page. After login, users will then be directed back to the ``Leave Review`` page for the particular item they chose earlier.
+![Create Review after Login](docs/readme_images/leave-review-after-signin.jpg)
+-	A flash message appears after a review is submitted.
+![Create Review Message](docs/readme_images/leave-review-message.jpg)
+
+
+**Create Reply page**
+
+*User Story*
+- ``As a staff user, I can reply to users’ reviews so that I can let customers know we care about their experience with us``
+- ``As a staff user, I can receive messages when I reply to a review so I know it was completed successfully``
+
+Implementation:
+
+-	A reply page was implemented with a form that allows staff users to reply to reviews left by customers through the UI. 
+-	After staff logged in, a ``Reply`` button became visible and redirect the staff user to reply page.
+![Reply Page](docs/readme_images/reply-form.jpg)
+-	A flash message appears after a reply is submitted.
+![Reply and Message](docs/readme_images/reply-and-message.jpg)
+-	If nun-staff try to access reply page through its URL address, they will be directed to a customized 403 page.
+
+**Authentication pages**
+
+*User Story*
+- ``As a developer, I can implement allauth so that users can sign up and have access to the websites features``
+
+- ``As a user, I can receive messages when I register/login/logout an account so that I can know the actions are conducted successfully``
+
+Implementation:
+
+**Register Page**
+
+-	A register page was implemented to allow user to create an account with O.A.T. 
+
+![Register](docs/readme_images/sign-up.jpg)
+
+**Login Page**
+
+-	A Login page was implemented to allow users to sign in their account safely before performing certain activities. 
+
+
+![Login](docs/readme_images/login.jpg)
+
+![Log Out](docs/readme_images/log-out.jpg)
+
+
+**Contact Page**
+
+    - A separate contact page was implemented with Address, Opening time, Contact Details and iframed Google Map.
+
+  ![Google](docs/readme_images/google.jpg)
+
+    - Contact details were featured with dial and mailto functions for a better user experience.
+  ![Contact](docs/readme_images/contact.jpg)
+
+
+
+**Back to Top**
+
+- A Back to Top icon was implemented at the menu-list, reviews and review details pages.
+- For longer pages, it would allow users to get back to top of the page easily.
+    
+![Back To Top](docs/readme_images/back-top.jpg)
+
+
+**Favicon**
+
+    - A site wide favicon was implemented.
+    - This provides an image in the tabs header to allow the user to easily identify the website if they have multiple tabs open.
+
+![Favicon](docs/readme_images/favicon.jpg)
+
+
+**Error Pages**
+
+*User Story*
+- ``As a developer, I can implement a 404 error page to alert users when they have accessed a page that doesn't exist``
+
+Implementation:
+
+**404 Page**
+
+-	A 404 page has been implemented and will display if a user navigates to a broken link.
+
+-	This customised 404 page will allow the user to easily navigate back to the main website by click on the ``Home`` button.
+
+![404 Page](docs/readme_images/404.jpg)
+
+*User Story*
+
+- ``As a developer, I need to implement a 403 error page to alert users when accessing a page/view that they do not have permission to``
+
+Implementation:
+
+**403 Page**
+
+-	A 403 error page has been implemented to provide feedback to the user when they try to access unauthorized content. 
+-	Users will be directed to this page if they alter the URL's and attempt to edit, delete or access pages that are restricted. 
+
+![404 Page](docs/readme_images/add-menu-403.jpg)
+
+This covers:
+
+* Add Menu - Only authorized to staff
+* Edit Menu - Only authorized to staff
+* Add Review - Only authorized to the customer who is logged in or Staff
+* Reply Review - Only authorized to staff
+
+*User Story*
+- ``USER STORY - As a developer, I need to implement a 500 error page to alert users when an internal server error occurs``
+
+Implementation:
+
+**500 Page**
+
+-	A 500 error page has been displayed to alert users when an internal server error occurs. 
+-	The message suggests the user to try it later. 
+
+### Features Left To Implement
+- In a future release I would like to implement a user center page. 
+- From there, user can view their own reviews, saved dishes which they liked.
+- User can also book a table, view and manage their bookings from there. 
+

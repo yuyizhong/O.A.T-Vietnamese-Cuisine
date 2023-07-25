@@ -577,3 +577,153 @@ Reply is related to Review by a Foreign Key which allows the manager to reply to
 Entity relationship diagram was created using [Dbeaver](https://dbeaver.io/) and shows the schemas for each of the models and how they are related.
 
 ![Entity Relationship Diagram](docs/readme_images/erd.jpg)
+
+
+### Security
+
+In addition to define different users for different accesses/activates at html, PermissionDenied was imported from django.core.exceptions to views to ensure that users who is trying to access unauthorized pages is not permitted. It provids additional security at the views level.
+
+Environment variables were stored in an env.py for local development for security purposes. It ensures no secret keys, api keys or sensitive information were added the repository. In production, these variables were added to heroku config vars within the project.
+
+## The-Surface-Plan
+### Design
+
+### Colour-Scheme
+
+The main colour schemes for the website is grey (rgba(0,0,0,.15)
+ )as the bg colour throughout of the pages. Both nav bar and footer are dark bg and light text. As the menu pictures are very colourful, most of the text at body is in black font (#000). I did add green to the main titles of each page and blue to manager replies to differentiate sections. Blue and gray are used for buttons. Logo and Up arrow are also in Blue. Rating stars are in yellow.
+
+### Typography
+
+The Roboto and Lato font were used throughout the website. They are from google fonts and imported into the style sheet.
+
+### Imagery
+
+The Website logo was formed from restaurant slogan:”Original Ingredients”, “Authentic Recipe” and “Traditional Method”.   
+
+
+## Technolgies
+
+- HTML
+  - The structure of the Website was developed using HTML as the main language.
+- CSS
+  - The Website was styled using custom CSS in an external file.
+- JavaScript
+  - JavaScript was used to make the custom slider on the menu page change and the bootstrap date picker.
+- Python
+  - Python was the main programming language used for the application using the Django Framework.
+- Gitpod
+  - This developer platform with VSCode editor can remotely work through web browser.
+- GitHub
+  - Source code is hosted on GitHub
+- Git
+  - Used to commit and push code during the development of the Website
+-ElephantSQL
+  - DB instance was created and stored at this website https://www.elephantsql.com/
+- Font Awesome
+  - This was used for various icons throughout the site
+- Favicon.io
+  - favicon files were created at https://favicon.io/favicon-converter/
+- balsamiq
+  - wireframes were created using balsamiq from https://balsamiq.com/wireframes/desktop/#
+- TinyPNG
+  - This was used to compress the hero image for optimal loading times
+
+**Python Modules Used**
+
+* Django Class based views (ListView, UpdateView, DeleteView, CreateView) - Used for the classes to create, read, update and delete
+* PermissionDenied (django.core.exceptions) - Used to enforce login required on views and test user is authorized to perform actions
+* messages - Used to pass messages feedback to the user upon actions
+
+**External Python Modules**
+
+* asgiref==3.7.2 - Asgiref provides two wrappers that allows developer go between asynchronous and synchronous code at will, while taking care of the rough edges
+* cloudinary== 1.33.0 - Cloundinary was set up for use but no custom uploads were made, settings remain for future development
+* crispy-bootstrap5==0.7 - This was used to allow bootstrap5 use with crispy forms 
+* dj-database-url==0.5.0 - Used to parse database url for production environment
+* dj3-cloudinary-storage==0.0.6 - Storage system to work with cloudinary
+* Django==3.2.19 - Framework used to build the application
+* django-allauth==0.54.0 - Used for the sites authentication system, sign up, sign in, logout, password resets ect.
+* django-crispy-forms==2.0 - Used to style the forms on render 
+* gunicorn==20.1.0 - Installed as dependency with another package
+* oauthlib==3.2.2 - Installed as dependency with another package
+* psycopg2==2.9.6 - Needed for heroku deployment 
+* PyJWT==2.7.0 - Installed as dependency with another package
+* python3-openid==3.2.0 - Installed as dependency with another package
+* pytz==2023.3 - The pytz module allows for date-time conversion and timezone calculations so that Python applications can keep track of dates and times
+* requests-oauthlib==1.3.1 - Installed as dependency with another package (allauth authentication)
+* sqlparse==0.4.4 - Installed as dependency with another package
+* urllib3==1.26.16 - Installed as dependency with another package
+
+## Testing
+
+Test cases and results can be found in the [TESTING.md](TESTING.md) file. This was moved due to the size of the file.
+
+## Deployment
+
+### Version Control
+
+The site was created at gitpod and pushed to github to the remote repository ‘O.A.T-Vietnamese-Cuisine’ throughout of the development.
+
+The following git commands were used throughout development to push code to the remote repo:
+
+```git add <file>``` - This command was used to add the file(s) to the staging area before they are committed.
+
+```git commit -m “commit message”``` - This command was used to commit changes to the local repository queue ready for the final step.
+
+```git push``` - This command was used to push all committed code to the remote repository on github.
+
+### Heroku Deployment
+
+The site was deployed to Heroku. The steps to deploy are as follows:
+
+- Navigate to heroku and create an account
+- Click the new button in the top right corner
+- Select create new app
+- Enter app name
+- Select region and click create app
+- Go to the settings tab and then click reveal config vars
+- Add the following config vars:
+  - SECRET_KEY: (Your secret key)
+  - DATABASE_URL: (DB URL copied from ElephantSQL)
+  - PORT: 8000  
+  - CLOUNDINARY_URL: (cloudinary api url)
+- Click the deploy tab
+- Scroll down to Connect to GitHub and sign in / authorize when prompted
+- In the search box, find the repositoy you want to deploy and click connect
+- Scroll down to Manual deploy and choose the main branch
+- Click deploy
+
+The app should now be deployed.
+
+The live link can be found here: [Live Site](https://oat-vietnamese-cuisine-91aa08c21232.herokuapp.com/)
+
+### Run Locally
+
+Navigate to the GitHub Repository you want to clone to use locally:
+
+- Click on the code drop down button
+- Click on HTTPS
+- Copy the repository link to the clipboard
+- Open your IDE of choice (git must be installed for the next steps)
+- Type git clone copied-git-url into the IDE terminal
+
+The project will now have been cloned on your local machine for use.
+
+### Fork Project
+
+Most commonly, forks are used to either propose changes to someone else's project or to use someone else's project as a starting point for your own idea.
+
+- Navigate to the GitHub Repository you want to fork.
+
+- On the top right of the page under the header, click the fork button.
+
+- This will create a duplicate of the full project in your GitHub Repository.
+
+## Credits 
+
+-	The Menu and Menu Images were taken from [edition.cnn.com](https://edition.cnn.com/travel/article/vietnam-food-dishes/index.html/),
+[roughguides.com]( https://www.roughguides.com/articles/best-vietnamese-food/)
+-	Dessert and drinks and the their images were from [willflyforfood]( https://www.willflyforfood.net/vietnamese-desserts/),[simplybakings.com]( https://simplybakings.com/watermelon-smoothie/), [insanlygoodrecipes.com]( https://insanelygoodrecipes.com/vietnamese-desserts/)
+
+-	Hero images were from [Adobe Stock]( https://stock.adobe.com/uk/)

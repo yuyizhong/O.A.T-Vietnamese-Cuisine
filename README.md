@@ -179,6 +179,8 @@ Tasks:
 
 ### Features
 
+<details open>
+
 **Home Page**
 
 *User Story*
@@ -503,6 +505,8 @@ Implementation:
 - From there, user can view their own reviews, saved dishes which they liked.
 - User can also book a table, view and manage their bookings from there. 
 
+</details>
+
 ## The-Skeleton-Plan
 
 ### Wireframes
@@ -648,6 +652,7 @@ The Website logo was formed from restaurant slogan:”Original Ingredients”, �
 
 
 ## Technolgies
+<details open>
 
 - HTML
   - The structure of the Website was developed using HTML as the main language.
@@ -700,11 +705,15 @@ The Website logo was formed from restaurant slogan:”Original Ingredients”, �
 * sqlparse==0.4.4 - Installed as dependency with another package
 * urllib3==1.26.16 - Installed as dependency with another package
 
+</details>
+
 ## Testing
 
 Test cases and results can be found in the [TESTING.md](TESTING.md) file. This was moved due to the size of the file.
 
 ## Deployment
+
+<details open>
 
 ### Version Control
 
@@ -764,6 +773,8 @@ Most commonly, forks are used to either propose changes to someone else's projec
 - On the top right of the page under the header, click the fork button.
 
 - This will create a duplicate of the full project in your GitHub Repository.
+
+</details>
 
 ## Credits 
 

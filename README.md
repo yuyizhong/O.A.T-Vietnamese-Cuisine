@@ -1,6 +1,6 @@
 # O.A.T Vietnamese Cuisine
 
-O.A.T Vietnamese Cuisine is an imaginary vietnamese restauraunt based in central London. The ideal is to provide londerners the most authentic vietnamese food with an website for staff to manage the daily menu and reply to customer reviews. It also allows customers to simply leave reviews to each dish on the menu list and view other's reviews. The average ratings of each menu item also gives both the staff and customers an idea of the most popular choices at O.A.T.
+O.A.T Vietnamese Cuisine is an imaginary vietnamese restauraunt based in central London. The ideal is to provide londerners the most authentic vietnamese food with a website for staff to manage the daily menu and reply to customer reviews. It also allows customers to simply leave reviews to each dish on the menu list and view other's reviews. The average ratings of each menu item also gives both the staff and customers an idea of the popular choices at O.A.T.
 The live link can be found here: [Live Site - O.A.T Vietnamese Cuisine ](https://oat-vietnamese-cuisine-91aa08c21232.herokuapp.com/)
 
 ![Responsive Mock-Up](docs/readme_images/responsive.jpg)
@@ -50,6 +50,7 @@ The site also aims to provide customers the opportunity to leave reviews and mak
 This project was developed through applying agile methodologies by delivering small features in incremental sprints.
 
 All projects were assigned to epics, which were broken into small tasks and prioritized as must have, should have, could have. "Must have" stories were completed first before "should haves", and the last "could haves". To ensure all core requirements completed first gives a complete product, with the nice to have features being added if the time frame allows.
+<details open>
 
 #### Epics
 
@@ -164,6 +165,7 @@ Tasks:
 
 * Complete readme documentation
 * Complete testing documentation
+</details>
 
 ## The-Scope-Plan
 
@@ -179,13 +181,17 @@ Tasks:
 
 **Home Page**
 
-``USER STORY - As a restaurant owner, I can have a home page so that It can best represent the business and allow customers to navigate from there.
+*User Story*
+
+``As a restaurant owner, I can have a home page so that It can best represent the business and allow customers to navigate from there.``
 
 *1. Navigation Menu*
 
-``USER STORY - As a developer, I can have the navbar so that users can navigate the website from any device``
+*User Story*
 
-Implementation:
+``As a developer, I can have the navbar so that users can navigate the website from any device``
+<details open>
+<summary>Implementation:</summary>
 
 
  The Navigation contains links for Home, Menu, Reviews, Register, Login and Contact.
@@ -210,22 +216,28 @@ Implementation:
   * Contact -> contact.html - Visible to all 
 
 The navigation menu is displayed on all pages and collapsed into a hamburger menu on smaller devices. This will allow users to view the site from any device.
+</details>
 
 ![Navbar](docs/readme_images/navbar.jpg)
 ![Navbar1](docs/readme_images/navbarm.jpg)
 
 *2. Hero Images*
 
-``USER STORY - As a restaurant owner, I would like hero images at home page so that it can deliver the business concept and purpose to site users``
+*User Story*
 
-Implementation:
+``As a restaurant owner, I would like hero images at home page so that it can deliver the business concept and purpose to site users``
+
+<details open>
+<summary>Implementation:</summary>
 
 The home page contains rotating hero images which representing their individual messages:
 - “Original Ingredients”
 - “Authentic Recipe”
 - “Traditional Method”. 
 
-The first letter of each phrase is highlighted in purple, which forms the restaurant name ``O.A.T``. This immediately make it evident to the user, what the purpose and believe of the website is.
+The first letter of each phrase is highlighted in purple, which forms the restaurant name ``O.A.T``. This immediately make it evident to the user, what the purpose and believe of the website is. 
+Hero images are rotated one after each other in the O. A. T order at an interval of 3 seconds
+</details>
 
 ![Hero Image1](docs/readme_images/hero1.jpg)
 
@@ -235,7 +247,9 @@ The first letter of each phrase is highlighted in purple, which forms the restau
 
 *3.Footer*
 
-``USER STORY - As a developer, I can create the footer with company copyright information``
+*User Story*
+
+ ``As a developer, I can create the footer with company copyright information``
 
 
 Implementation:
@@ -246,6 +260,8 @@ A footer has been added to the bottom of the site, this contains copyright infor
 ![Footer](docs/readme_images/footer.jpg)
 
 **View Menu Page**
+
+*User Story*
 
 ``As a user, I can view menu list so that I can decide if I would like to dine at the restaurant``
 
@@ -491,76 +507,105 @@ Implementation:
 
 ### Wireframes
 
-- **Home page**
+<details open>
+<summary>Home page</summary>
 
 ![Home Page](docs/wireframes/home-desktop.jpg)
 
 ![Home Page](docs/wireframes/home-mobile.jpg)
 
+</details>
 
-- **Menu page**
+<details open>
+<summary>Menu page</summary>
 
 ![Menu Page](docs/wireframes/menu-desktop.jpg)
 
 ![Menu Page](docs/wireframes/menu-mobile.jpg)
 
-- **Reviews page**
+</details>
+
+<details open>
+<summary>Reviews page</summary>
 
 ![Reviews Page](docs/wireframes/reviews-desktop.jpg)
 
 ![Reviews Page](docs/wireframes/reviews-mobile.jpg)
 
+</details>
 
-- **Review Details page**
+<details open>
+<summary>Reviews Details page</summary>
 
 ![Reviews Details Page](docs/wireframes/item-review-desktop.jpg)
 
 ![Reviews Details Page](docs/wireframes/item-review-mobile.jpg)
 
+</details>
 
-- **Contact page**
+<details open>
+<summary>Contact page</summary>
 
 ![Contact Page](docs/wireframes/contact-desktop.jpg)
 
 ![Contact Page](docs/wireframes/contact-mobile.jpg)
 
-- **Register**
+</details>
+
+<details open>
+<summary>Register page</summary>
 
 ![Register Page](docs/wireframes/signup-desktop.jpg)
 
 ![Register Page](docs/wireframes/signup-mobile.jpg)
 
+</details>
 
-- **Log in**
+<details open>
+<summary>Login page</summary>
 
 ![Login Page](docs/wireframes/login-desktop.jpg)
 
 ![Login Page](docs/wireframes/login-mobile.jpg) 
 
-- **Create Menu**
+</details>
+
+<details open>
+<summary>Create Menu page</summary>
 
 ![Create Menu](docs/wireframes/add-menu-desktop.jpg)
 
 ![Create Menu](docs/wireframes/add-menu-mobile.jpg)
 
+</details>
 
-- **Edit Menu**
+<details open>
+<summary>Edit Menu page</summary>
 
 ![Edit Menu](docs/wireframes/edit-menu-desktop.jpg)
 
 ![Edit Menu](docs/wireframes/edit-menu-mobile.jpg)
 
-- **Create Review**
+</details>
+
+<details open>
+<summary>Create Review page</summary>
 
 ![Create Review](docs/wireframes/leave-review-desktop.jpg)
 
 ![Create Review](docs/wireframes/leave-review-mobile.jpg)
 
-- **Create Reply** 
+</details>
+
+<details open>
+<summary>Create Reply page</summary>
 
 ![Create Reply](docs/wireframes/reply-desktop.jpg)
 
 ![Create Reply](docs/wireframes/reply-mobile.jpg)
+
+</details>
+
 
 **Differences to Design**
 

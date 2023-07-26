@@ -117,6 +117,7 @@ Actual:
 Menu has been updated and a flash message displayed to the user it was updated
 
 <hr>
+
 *Hide/Unhide Menu*
 
 Ensure a menu can be toggled off and add it back to the Daily Menu page
@@ -289,31 +290,24 @@ Results:
 
 [Wave Accessibility](https://wave.webaim.org/) tool was used throughout development and for final testing of the deployed website to check for any aid accessibility testing.
 
-Testing was focused to ensure the following criteria were met:
+I couldn't fix the empty link error identified by WAVE Accessibility. The Edit Menu Form were prefilled with the current menu information including the imgae. However the menu image is stored at cloudinary and WAVE recognises it as an empty link.
 
-- Color contrasts meet a minimum ratio as specified in [WCAG 2.1 Contrast Guidelines](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html)
-- Heading levels are not missed or skipped to ensure the importance of content is relayed correctly to the end user
-- All content is contained within landmarks to ensure ease of use for assistive technology, allowing the user to navigate by page regions
-- All not textual content had alternative text or titles so descriptions are read out to screen readers
-- HTML page lang attribute has been set
-- Aria properties have been implemented correctly
-- WCAG 2.1 Coding best practices being followed
+![Cloudinary-lead-error](docs/testing/bug.jpg)
 
 ## Validator Testing
 
-All pages were run through the [w3 HTML Validator](https://validator.w3.org/). Initially there were some errors due to stray script tags, misuse of headings within spans and some unclosed elements. All of these issues were corrected and all pages passed validation.
+All pages were run through the [w3 HTML Validator](https://validator.w3.org/). Initially there were some errors due to missuse <a></a> within a button and didn't have an alt for the logo image. All of these issues were corrected and all pages passed validation.
 
 Due to the django templating language code used in the HTML files, these could not be copy and pasted into the validator and due to the secured views, pages with login required or a secured view cannot be validated by direct URI. To test the validation on the files, open the page to validate, right click and view page source. Paste the raw html code into the validator as this will be only the HTML rendered code.
 
 ![HTML Validator](docs/testing/html.jpg)
 
-All pages were run through the CI [Pep8](https://pep8ci.herokuapp.com/) validator to ensure all code was pep8 compliant. Some errors were shown due to blank spacing and lines too long, 1 line instead of 2 expected. All of these errors were resolved and code passed through validators with the exception of the settings.py file.
+All pages were run through the CI [Pep8](https://pep8ci.herokuapp.com/) validator to ensure all code was pep8 compliant. Some errors were shown due to white trailing spaces and lines too long, empty lines expected. All of these errors were resolved and code passed through validators with the exception of the settings.py file.
 
-The django auto generated code for AUTH_PASSWORD_VALIDATORS were showing up as lines too long. I could not find a way to split these lines but since they were auto generated and not my own custom code, I hope this is acceptable.
 
 ![PEP8](docs/testing/pep8.jpg)
 
-JavaScript code was run through [JSHINT](https://jshint.com) javascript validator. lIt flagged up issues with undefined variables as I jad forgotten to use the let keyword. This was fixed and the only warnings remained were that they were unused variables. The functions were called via onclick from the html elements themselves, so are in fact being used.
+JavaScript code was run through [JSHINT](https://jshint.com) javascript validator. It mentioned one undefined variable. This function is to set the time interval for bootstrap alert messages.
 
 ![JS validator](docs/testing/js.jpg)
 ![JS validator](docs/testing/js1.jpg)
@@ -321,7 +315,7 @@ JavaScript code was run through [JSHINT](https://jshint.com) javascript validato
 
 ## Lighthouse Report
 
-Lighthouse report showed areas for improvement on SEO and Best practices. Meta descriptions and keywords were added to boost the SEO to 100 but the best practice warnings were coming from the use of an embedded iframe's javascript. Unfortunately I did not find a way to improve this as I am not initialising the google map iframe with javascript.
+Lighthouse report showed areas for improvement on SEO and Best practices. Meta descriptions keywords and js were added to boost the SEO and accessability to 100. 
 
 ![Lighthouse Desktop](docs/testing/lighthouse-desktop.jpg)
 
@@ -350,6 +344,4 @@ Website behaved as expected.
 
 ## Bugs
 
-I couldn't fix the empty link error identified by WAVE Valodator as the Edit Menu Form were prefilled with the current menu information including the imgae. However the menu image is stored at cloudinary and WAVE identified it as an empty link.
-
-![Cloudinary-lead-error](docs/testing/bug.jpg)
+Instead of bug, there is a feature I would like to improve if I have longer time. Current 'delete menu' function has no confirmation before deleting. I would like to build a delete view. When clicking on delete button, instead of deleting the menu immediately, it would direct the user to a delete view where confirmation is reassured. Also a protection of PermissionDenied will be added to view level to prevent unauthorised access. 

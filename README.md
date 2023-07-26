@@ -50,6 +50,12 @@ The site also aims to provide customers the opportunity to leave reviews and mak
 This project was developed through applying agile methodologies by delivering small features in incremental sprints.
 
 All projects were assigned to epics, which were broken into small tasks and prioritized as must have, should have, could have. "Must have" stories were completed first before "should haves", and the last "could haves". To ensure all core requirements completed first gives a complete product, with the nice to have features being added if the time frame allows.
+
+The O.A.T User Story was created using github projects and can be located [here](https://github.com/users/yuyizhong/projects/4) and can be viewed for more information on the project cards. All stories except documentation tasks have a full set of acceptance criteria to mark the story is completed.
+
+![User Story Project 1](docs/readme_images/userstory.jpg)
+
+![User Story Project 1](docs/readme_images/userstory-example.jpg)
 <details open>
 
 #### Epics
